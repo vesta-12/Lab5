@@ -2,7 +2,7 @@
 
 Student: Sofiya Serbina. Course: Distributed & Cloud Computing. Group: ICT4401-ENG-1.
 
-This laboratory lives in `lab5/` on `lab5-nosql-fault-tolerance`, based on the completed Lab 4 branch. Earlier laboratory code, deployments, reports and evidence stay unchanged. The main deliverable for assessment is `test_report.md` (15/25 points). Current results are generated from the real evidence in `logs/`, never from mocked responses.
+This laboratory lives in `lab5/` on `lab5-nosql-fault-tolerance`, based on the completed Lab 4 branch. Earlier laboratory code, deployments, reports and evidence stay unchanged. Current results are generated from the real evidence in `logs/`, never from mocked responses.
 
 ## Architecture
 
