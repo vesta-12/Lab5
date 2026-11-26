@@ -1,51 +1,47 @@
-# Part B screenshot checklist
+# Lab 6 screenshot evidence
 
-No screenshots have been fabricated or rendered from logs. Native Terminal
-automation is unavailable in the agent session: the computer-use tool refused
-access to `com.apple.Terminal`. The five PNG files below therefore require
-manual capture. The original actual HTTP responses are separately retained in
-`../logs/part_b_http_checks.log`.
+All required Part B and Part C subjects are present. The three user-provided
+Part B PNGs contain combined views covering five requirements; their original
+filenames and pixels are preserved. Five Part C JPEGs are actual GitHub browser
+captures, indexed with URLs and hashes in [part_c_evidence.md](part_c_evidence.md)
+and [ci_sources.json](ci_sources.json). No images were generated or reconstructed
+from logs.
 
-## Prepare two terminals
+## Part B - actual local HTTP demonstration
 
-In the first Terminal or PyCharm terminal:
+| Required evidence | Existing image | Visible observation |
+| --- | --- | --- |
+| GET /time - 200 | [1.png](1.png) | HTTP 200, UTC time, server_time and served_by. |
+| POST /echo - 200 | [1.png](1.png) | HTTP 200 and matching reply/message for Hello from Lab 6. |
+| Invalid request - 400 | [2.png](2.png) | HTTP 400 and the missing-message JSON error. |
+| Unknown route - 404 | [2.png](2.png) | HTTP 404 and the route-not-found JSON error. |
+| Local Runner and request log | [3.png](3.png) | Python 3.12.16, listening URL, all four request/status log entries. |
 
-```bash
-cd ~/Lab3_Docker_Kubernetes_Lab4
-git branch --show-current
-# Expected branch: lab6-serverless-ci
-lab6/.venv/bin/python --version
-lab6/.venv/bin/python lab6/local_runner.py
-```
+The `zsh: command not found: #` messages in 1.png and 2.png came from pasted
+comment lines in an interactive shell. They are not Lambda or HTTP failures:
+the genuine HTTP responses and the corresponding server log are visible.
+The images remain unedited. The reproducible demonstration commands in the
+main README do not require pasting comments.
 
-Keep this server running. Its startup output must show
-`http://127.0.0.1:8000`. If this is already the Lab 6 runner, use the existing
-server. If another application owns 8000, choose a free `LAB6_PORT` and replace
-8000 in every command below; do not kill another application's process.
+Original machine-readable curl evidence is in
+[part_b_http_checks.log](../logs/part_b_http_checks.log); automated HTTP tests
+also verify Unicode, malformed JSON, routing and body handling.
 
-In the second terminal, run each command and capture its **new actual output**.
-On macOS use Command+Shift+4, then Space, to capture the terminal window.
-Make the command, HTTP status, Content-Type and complete JSON body readable.
-Save each PNG under `lab6/screenshots/` with the exact filename below.
+## Part C - actual GitHub Actions UI
 
-| Filename | Command / required content |
+| Required evidence | Existing image |
 | --- | --- |
-| `01_time_200.png` | `curl -i http://127.0.0.1:8000/time` — HTTP 200, current UTC `time`, matching `server_time` and `served_by`. |
-| `02_echo_200.png` | `curl -i -H 'Content-Type: application/json' --data-binary '{"message":"Hello from Lab 6"}' http://127.0.0.1:8000/echo` — HTTP 200 with matching `reply` and `message`. |
-| `03_invalid_400.png` | `curl -i -H 'Content-Type: application/json' --data-binary '{}' http://127.0.0.1:8000/echo` — HTTP 400 and JSON error. |
-| `04_unknown_404.png` | `curl -i http://127.0.0.1:8000/unknown` — HTTP 404 and JSON error. |
-| `05_local_runner.png` | First terminal: server launch command, listening URL and request log lines from the four curl commands. Capture while the server is still running. |
+| First GREEN | [06_ci_first_green.jpg](06_ci_first_green.jpg) |
+| Intentional RED | [07_ci_intentional_red.jpg](07_ci_intentional_red.jpg) |
+| Package job skipped | [08_ci_package_skipped.jpg](08_ci_package_skipped.jpg) |
+| Restored GREEN | [09_ci_restored_green.jpg](09_ci_restored_green.jpg) |
+| Uploaded lambda-package | [10_ci_artifact.jpg](10_ci_artifact.jpg) |
 
-Additional optional evidence for malformed JSON and Unicode:
+These are historical captures of the original push runs, not screenshots of
+the later workflow-path rename. Their original run URLs remain available.
+Authenticated GitHub API records and the complete job logs are retained in
+[the CI evidence summary](../logs/part_c_ci_evidence.md).
 
-```bash
-curl -i -H 'Content-Type: application/json' \
-  --data-binary '{"message":' http://127.0.0.1:8000/echo
-curl -i -H 'Content-Type: application/json' \
-  --data-binary '{"message":"Hello, Привет, 世界 👋"}' http://127.0.0.1:8000/echo
-```
-
-These should produce HTTP 400 and HTTP 200 respectively. Escaped Unicode in
-JSON is valid; the automated HTTP test verifies the decoded original string.
-After capturing all five images, stop your server with Ctrl+C in its terminal.
-Do not label archived log displays as live Terminal captures.
+No additional manual screenshot is required for the supplied criteria.
+Optional higher-resolution replacements can be captured from the same source
+pages, but existing images must not be represented as a new execution.

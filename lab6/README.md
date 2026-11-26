@@ -1,6 +1,22 @@
 # Laboratory Work 6 — A Serverless Function and CI/CD
 
-Student: Sofiya Serbina. Course: Distributed & Cloud Computing.
+Student: Sofiya Serbina. Group: ICT4401-ENG-1. Course: Distributed & Cloud Computing.
+
+## Submission through GitHub
+
+Parts A, B and C are complete. The submitted code is on `lab6-serverless-ci`;
+no separate laboratory submission ZIP is needed. The required CI build artifact
+is still `lambda-package`.
+
+- [Two-page report](report.pdf)
+- [Genuine screenshots and coverage index](screenshots/README.md)
+- [Original CI runs and job evidence](logs/part_c_ci_evidence.md)
+- [Final 25-point criteria audit](logs/final_submission_audit.md)
+- [Latest ci.yml push runs and artifacts](https://github.com/vesta-12/Lab5/actions/workflows/ci.yml?query=branch%3Alab6-serverless-ci)
+
+Architecture: HTTP request -> Local Runner -> API Gateway v2 event ->
+`lambda_handler` -> JSON response. GitHub separately runs Python 3.12 tests ->
+`package` -> `lambda-package`. No AWS deployment or AWS cold-start timing is claimed.
 
 ## Stage 1: Part A — Function and Tests
 
@@ -151,8 +167,8 @@ unsupported routes/methods, HEAD semantics and malformed HTTP body framing.
 
 Original curl output is retained in [logs/part_b_http_checks.log](logs/part_b_http_checks.log).
 Screenshot commands and capture status are documented in
-[screenshots/README.md](screenshots/README.md). CI/CD, a final report and a ZIP
-are intentionally outside this stage.
+[screenshots/README.md](screenshots/README.md). The final report and CI evidence
+are linked in the submission section above.
 
 Verified on Python **3.12.16**, pytest **8.3.5**: **39 passed** (19 unchanged
 Part A cases and 20 actual HTTP/TCP cases). All 10 live curl checks passed,
@@ -162,13 +178,15 @@ The original [JUnit results](logs/part_b_pytest.xml),
 [HTTP observations](logs/part_b_http_results.json) and
 [server stdout/stderr](logs/part_b_local_runner.log) are retained.
 The demonstration server was stopped with Ctrl+C after verification.
-Five native terminal screenshots are pending manual capture as documented in
-the screenshot checklist; no synthetic images have been substituted.
+The user-provided 1.png, 2.png and 3.png cover all five required Part B subjects.
+Their contents are indexed in screenshots/README.md; no synthetic images were substituted.
 
 
 ## Stage 3: Part C — GitHub Actions CI/CD
 
-Workflow: [`.github/workflows/lab6-ci.yml`](../.github/workflows/lab6-ci.yml).
+Workflow: [`.github/workflows/ci.yml`](../.github/workflows/ci.yml).
+The file was renamed without configuration changes to match the assignment.
+Historical runs below retain their original lab6-ci.yml path and URLs.
 It runs on every Git push to `lab6-serverless-ci` or `main`, with optional
 `workflow_dispatch`. The three required evidence runs below were all triggered
 by actual pushes to the Lab 6 branch. No main-branch merge or push was made.
@@ -230,4 +248,43 @@ captures and their provenance are indexed in
 
 References: [GitHub job dependencies](https://docs.github.com/en/actions/how-tos/write-workflows/choose-what-workflows-do/use-jobs),
 [official upload-artifact](https://github.com/actions/upload-artifact).
-A final PDF and laboratory submission ZIP belong to a later stage.
+The final report is [report.pdf](report.pdf); submission is through GitHub,
+without a separate laboratory submission ZIP.
+
+
+## Demonstration for assessment
+
+Open the repository root in PyCharm and select `lab6/.venv/bin/python` (Python
+3.12). Use the setup instructions above for a fresh clone. In its terminal:
+
+```bash
+lab6/.venv/bin/python -m pytest lab6/tests -v
+lab6/.venv/bin/python lab6/local_runner.py
+```
+
+The first command should show **39 passed**. Keep the second command running
+and use another terminal:
+
+```bash
+curl -i http://127.0.0.1:8000/time
+curl -i -H 'Content-Type: application/json' --data-binary '{"message":"Hello from Lab 6"}' http://127.0.0.1:8000/echo
+curl -i -H 'Content-Type: application/json' --data-binary '{}' http://127.0.0.1:8000/echo
+curl -i http://127.0.0.1:8000/unknown
+```
+
+Show **200 / 200 / 400 / 404** and the JSON bodies, then the server request log.
+Stop only your demonstration server with Ctrl+C. Open the three historical CI
+links in the table above to demonstrate GREEN / RED / GREEN without repeating
+the intentional failure. On RED, show the skipped package job and zero artifacts;
+on GREEN, download lambda-package and inspect the inner ZIP's root file.
+
+Explain that the local runner only adapts HTTP to a Lambda event; tests protect
+both contracts and packaging. B-2 emulates invocation locally and needs no AWS
+keys. A real cold start is initialization overhead, not a measured result here.
+
+To regenerate the report without running experiments:
+
+```bash
+lab6/.venv/bin/python -m pip install -r lab6/requirements-report.txt
+lab6/.venv/bin/python lab6/scripts/build_report.py
+```
