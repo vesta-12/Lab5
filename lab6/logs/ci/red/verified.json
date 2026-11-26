@@ -1,0 +1,28 @@
+{
+  "label": "red",
+  "verified_at_utc": "2026-11-26T20:37:01.318863+00:00",
+  "run_id": 45892227649,
+  "url": "https://github.com/vesta-12/Lab5/actions/runs/45892227649",
+  "commit": "ebab758d03f9fcbeb24080f4dbe1f5c928b680a6",
+  "event": "push",
+  "conclusion": "failure",
+  "jobs": [
+    {
+      "name": "test",
+      "id": 140157405555,
+      "url": "https://github.com/vesta-12/Lab5/actions/runs/45892227649/job/140157405555",
+      "conclusion": "failure"
+    },
+    {
+      "name": "package",
+      "id": 140157479825,
+      "url": "https://github.com/vesta-12/Lab5/actions/runs/45892227649/job/140157479825",
+      "conclusion": "skipped"
+    }
+  ],
+  "artifacts": [],
+  "passed": 39,
+  "failed": 1,
+  "intentional_assertion_failure": true,
+  "artifact_count": 0
+}

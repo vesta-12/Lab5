@@ -11,7 +11,7 @@ database, disk storage or third-party runtime package is required.
 
 The selected execution option is **B-2: Local Run without AWS**. Part A contains
 the function and direct tests; Part B adds the local HTTP adapter below.
-CI/CD configuration belongs to a later stage.
+Part C adds the GitHub Actions test-and-package pipeline described below.
 
 ## API and compatibility
 
@@ -164,3 +164,70 @@ The original [JUnit results](logs/part_b_pytest.xml),
 The demonstration server was stopped with Ctrl+C after verification.
 Five native terminal screenshots are pending manual capture as documented in
 the screenshot checklist; no synthetic images have been substituted.
+
+
+## Stage 3: Part C — GitHub Actions CI/CD
+
+Workflow: [`.github/workflows/lab6-ci.yml`](../.github/workflows/lab6-ci.yml).
+It runs on every Git push to `lab6-serverless-ci` or `main`, with optional
+`workflow_dispatch`. The three required evidence runs below were all triggered
+by actual pushes to the Lab 6 branch. No main-branch merge or push was made.
+
+The `test` job checks out the repository, selects Python 3.12, installs
+`lab6/requirements-dev.txt` and executes `python -m pytest lab6/tests -v`.
+All 39 original cases run, including real loopback HTTP tests. A failing pytest
+exit code fails the job; no continue-on-error or failure masking is used.
+
+The separate `package` job has `needs: test`. GitHub therefore skips it when
+tests fail. After success it checks out the same commit and uses Python 3.12's
+standard-library `zipfile` to build and verify `lambda_function.zip`. The ZIP
+contains exactly **`lambda_function.py` at its root**, suitable for the handler
+name `lambda_function.lambda_handler`. `actions/upload-artifact` publishes it
+as **`lambda-package`** with a 90-day retention request.
+
+| Push run | Commit | Actual tests | test | package | Artifacts | GitHub run |
+| --- | --- | --- | --- | --- | --- | --- |
+| 1 — GREEN | [8b6a176](https://github.com/vesta-12/Lab5/commit/8b6a176913980a6845d1fd6b67fa1de534e0cba2) | 39 passed | success | success | 1 | [Run 45892096178](https://github.com/vesta-12/Lab5/actions/runs/45892096178) |
+| 2 — RED | [ebab758](https://github.com/vesta-12/Lab5/commit/ebab758d03f9fcbeb24080f4dbe1f5c928b680a6) | 39 passed, 1 intentional failure | failure | skipped | 0 | [Run 45892227649](https://github.com/vesta-12/Lab5/actions/runs/45892227649) |
+| 3 — GREEN | [e96b2a3](https://github.com/vesta-12/Lab5/commit/e96b2a3e97b020593ce85cf5cc560e02cf6acaca) | 39 passed | success | success | 1 | [Run 45892413211](https://github.com/vesta-12/Lab5/actions/runs/45892413211) |
+
+The RED commit adds only `tests/test_intentional_ci_failure.py`, whose explicit
+false assertion demonstrates the required failure. Run 3 removes only that file.
+The failed commit remains in history; the current test directory has no intentional
+failure. Downloaded artifacts from both GREEN runs were checked for ZIP integrity,
+root layout and exact equality with the handler source in their respective commits.
+Local regression verification after Run 3 also passed **39/39 on Python 3.12.16**.
+
+### Download the verified package
+
+Open [the restored GREEN run](https://github.com/vesta-12/Lab5/actions/runs/45892413211), scroll to **Artifacts** and
+select **lambda-package**. GitHub may require signing in to download it.
+The artifact is [ID 15151678519](https://github.com/vesta-12/Lab5/actions/runs/45892413211/artifacts/15151678519); its API-reported expiry
+is `2027-02-24T20:37:40Z`. The downloaded artifact bundle contains
+`lambda_function.zip`; opening that inner archive reveals `lambda_function.py`.
+The inner ZIP SHA-256 from the verified download is
+`acdfac26e0eed72bd7d374e3a240e74a6077fe2320b24382f7f68ab105d0e2bf`.
+
+Alternatively, after authenticating GitHub CLI:
+
+```bash
+gh run download 45892413211 --repo vesta-12/Lab5 \
+  --name lambda-package --dir /tmp/lab6-ci-package
+python3 -m zipfile -l /tmp/lab6-ci-package/lambda_function.zip
+```
+
+This workflow performs tests and package delivery only; it does not deploy to AWS.
+B-2 needs no AWS account or access keys, so no AWS credentials or new repository
+secrets were created. Workflow permissions are `contents: read`; checkout does
+not persist credentials. Official Actions are pinned to exact commit SHAs.
+GitHub supplies its own short-lived run credentials for normal checkout/artifact
+operations; they are not source-code secrets.
+
+Original API records, full job logs, artifact metadata and download checks are in
+[logs/part_c_ci_evidence.md](logs/part_c_ci_evidence.md). Five genuine GitHub UI
+captures and their provenance are indexed in
+[screenshots/part_c_evidence.md](screenshots/part_c_evidence.md).
+
+References: [GitHub job dependencies](https://docs.github.com/en/actions/how-tos/write-workflows/choose-what-workflows-do/use-jobs),
+[official upload-artifact](https://github.com/actions/upload-artifact).
+A final PDF and laboratory submission ZIP belong to a later stage.

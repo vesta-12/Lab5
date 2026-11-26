@@ -1,0 +1,42 @@
+{
+  "label": "green-2",
+  "verified_at_utc": "2026-11-26T20:38:10.573154+00:00",
+  "run_id": 45892413211,
+  "url": "https://github.com/vesta-12/Lab5/actions/runs/45892413211",
+  "commit": "e96b2a3e97b020593ce85cf5cc560e02cf6acaca",
+  "event": "push",
+  "conclusion": "success",
+  "jobs": [
+    {
+      "name": "test",
+      "id": 140158019215,
+      "url": "https://github.com/vesta-12/Lab5/actions/runs/45892413211/job/140158019215",
+      "conclusion": "success"
+    },
+    {
+      "name": "package",
+      "id": 140158080264,
+      "url": "https://github.com/vesta-12/Lab5/actions/runs/45892413211/job/140158080264",
+      "conclusion": "success"
+    }
+  ],
+  "artifacts": [
+    {
+      "id": 15151678519,
+      "name": "lambda-package",
+      "size_in_bytes": 1243,
+      "digest": "sha256:c1f42af126a2c9519b2acbc97297d1ed27d1c79a4015d3b6ffbf6e44372225c4",
+      "expired": false,
+      "expires_at": "2027-02-24T20:37:40Z",
+      "url": "https://github.com/vesta-12/Lab5/actions/runs/45892413211/artifacts/15151678519"
+    }
+  ],
+  "passed": 39,
+  "failed": 0,
+  "package_members": [
+    "lambda_function.py"
+  ],
+  "package_sha256": "acdfac26e0eed72bd7d374e3a240e74a6077fe2320b24382f7f68ab105d0e2bf",
+  "source_sha256": "2df881141409b1eba3d954ea9670070a7c4cab1711fa8f6cc33187fe787fe961",
+  "downloaded_package_matches_committed_source": true
+}

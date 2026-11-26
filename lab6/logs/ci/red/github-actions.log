@@ -1,0 +1,284 @@
+test	Set up job	﻿2026-11-26T20:36:10.7215847Z Current runner version: '2.338.2'
+test	Set up job	2026-11-26T20:36:10.7236831Z ##[group]Runner Image Provisioner
+test	Set up job	2026-11-26T20:36:10.7237588Z Hosted Compute Agent
+test	Set up job	2026-11-26T20:36:10.7238023Z Version: 20261111.635
+test	Set up job	2026-11-26T20:36:10.7238560Z Commit: b8a594ea514ff44cadb5342986c68b1eac6e22ed
+test	Set up job	2026-11-26T20:36:10.7239109Z Build Date: 2026-11-11T01:49:01Z
+test	Set up job	2026-11-26T20:36:10.7239634Z Worker ID: {7bc21f3a-0eb4-4e29-8cfd-aab0841cf724}
+test	Set up job	2026-11-26T20:36:10.7240144Z Region: centralus
+test	Set up job	2026-11-26T20:36:10.7240519Z Cloud: Azure
+test	Set up job	2026-11-26T20:36:10.7240938Z ##[endgroup]
+test	Set up job	2026-11-26T20:36:10.7241947Z ##[group]Operating System
+test	Set up job	2026-11-26T20:36:10.7242423Z Ubuntu
+test	Set up job	2026-11-26T20:36:10.7242810Z 26.04.1
+test	Set up job	2026-11-26T20:36:10.7243176Z LTS
+test	Set up job	2026-11-26T20:36:10.7243564Z ##[endgroup]
+test	Set up job	2026-11-26T20:36:10.7243960Z ##[group]Runner Image
+test	Set up job	2026-11-26T20:36:10.7244443Z Image: ubuntu-26.04
+test	Set up job	2026-11-26T20:36:10.7245131Z Version: 20261116.202.1
+test	Set up job	2026-11-26T20:36:10.7245973Z Included Software: https://github.com/actions/runner-images/blob/ubuntu26/20261116.202/images/ubuntu/Ubuntu2604-Readme.md
+test	Set up job	2026-11-26T20:36:10.7247223Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu26%2F20261116.202
+test	Set up job	2026-11-26T20:36:10.7247904Z ##[endgroup]
+test	Set up job	2026-11-26T20:36:10.7248682Z ##[group]GITHUB_TOKEN Permissions
+test	Set up job	2026-11-26T20:36:10.7250766Z Contents: read
+test	Set up job	2026-11-26T20:36:10.7251210Z Metadata: read
+test	Set up job	2026-11-26T20:36:10.7251617Z ##[endgroup]
+test	Set up job	2026-11-26T20:36:10.7253170Z Secret source: Actions
+test	Set up job	2026-11-26T20:36:10.7253880Z Cache mode: write
+test	Set up job	2026-11-26T20:36:10.7254391Z Prepare workflow directory
+test	Set up job	2026-11-26T20:36:10.7504042Z Prepare all required actions
+test	Set up job	2026-11-26T20:36:10.7557181Z Getting action download info
+test	Set up job	2026-11-26T20:36:10.9939023Z Download action repository 'actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1' (SHA:3d3c42e5aac5ba805825da76410c181273ba90b1)
+test	Set up job	2026-11-26T20:36:11.0777326Z Download action repository 'actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0' (SHA:6d4fd22b20465ccc0f7354476588e8df7c9ca0e0)
+test	Set up job	2026-11-26T20:36:11.2289258Z Complete job name: test
+test	Checkout repository	﻿2026-11-26T20:36:11.2899207Z ##[group]Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+test	Checkout repository	2026-11-26T20:36:11.2900059Z with:
+test	Checkout repository	2026-11-26T20:36:11.2900523Z   persist-credentials: false
+test	Checkout repository	2026-11-26T20:36:11.2900991Z   repository: vesta-12/Lab5
+test	Checkout repository	2026-11-26T20:36:11.2904059Z   token: ***
+test	Checkout repository	2026-11-26T20:36:11.2904502Z   ssh-strict: true
+test	Checkout repository	2026-11-26T20:36:11.2905089Z   ssh-user: git
+test	Checkout repository	2026-11-26T20:36:11.2905619Z   clean: true
+test	Checkout repository	2026-11-26T20:36:11.2906067Z   sparse-checkout-cone-mode: true
+test	Checkout repository	2026-11-26T20:36:11.2906573Z   fetch-depth: 1
+test	Checkout repository	2026-11-26T20:36:11.2906991Z   fetch-tags: false
+test	Checkout repository	2026-11-26T20:36:11.2907397Z   show-progress: true
+test	Checkout repository	2026-11-26T20:36:11.2907846Z   lfs: false
+test	Checkout repository	2026-11-26T20:36:11.2908234Z   submodules: false
+test	Checkout repository	2026-11-26T20:36:11.2908659Z   set-safe-directory: true
+test	Checkout repository	2026-11-26T20:36:11.2909171Z   allow-unsafe-pr-checkout: false
+test	Checkout repository	2026-11-26T20:36:11.2909754Z ##[endgroup]
+test	Checkout repository	2026-11-26T20:36:11.5757168Z Syncing repository: vesta-12/Lab5
+test	Checkout repository	2026-11-26T20:36:11.5758894Z ##[group]Getting Git version info
+test	Checkout repository	2026-11-26T20:36:11.5759574Z Working directory is '/home/runner/work/Lab5/Lab5'
+test	Checkout repository	2026-11-26T20:36:11.5760471Z [command]/usr/bin/git version
+test	Checkout repository	2026-11-26T20:36:11.5781527Z git version 2.56.1
+test	Checkout repository	2026-11-26T20:36:11.5797956Z ##[endgroup]
+test	Checkout repository	2026-11-26T20:36:11.5806528Z Temporarily overriding HOME='/home/runner/work/_temp/5ef0244b-6ea4-426e-8188-99e43cfd8997' before making global git config changes
+test	Checkout repository	2026-11-26T20:36:11.5808427Z Adding repository directory to the temporary git global config as a safe directory
+test	Checkout repository	2026-11-26T20:36:11.5810173Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/Lab5/Lab5
+test	Checkout repository	2026-11-26T20:36:11.5868734Z Deleting the contents of '/home/runner/work/Lab5/Lab5'
+test	Checkout repository	2026-11-26T20:36:11.5878919Z ##[group]Determining repository object format
+test	Checkout repository	2026-11-26T20:36:11.5880112Z ##[endgroup]
+test	Checkout repository	2026-11-26T20:36:11.5880924Z ##[group]Initializing the repository
+test	Checkout repository	2026-11-26T20:36:11.5881809Z [command]/usr/bin/git init /home/runner/work/Lab5/Lab5
+test	Checkout repository	2026-11-26T20:36:11.5973450Z hint: Using 'master' as the name for the initial branch. This default branch name
+test	Checkout repository	2026-11-26T20:36:11.5975184Z hint: will change to "main" in Git 3.0. To configure the initial branch name
+test	Checkout repository	2026-11-26T20:36:11.5976355Z hint: to use in all of your new repositories, which will suppress this warning,
+test	Checkout repository	2026-11-26T20:36:11.5977106Z hint: call:
+test	Checkout repository	2026-11-26T20:36:11.5978708Z hint:
+test	Checkout repository	2026-11-26T20:36:11.5979844Z hint: 	git config --global init.defaultBranch <name>
+test	Checkout repository	2026-11-26T20:36:11.5980703Z hint:
+test	Checkout repository	2026-11-26T20:36:11.5981542Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+test	Checkout repository	2026-11-26T20:36:11.5982522Z hint: 'development'. The just-created branch can be renamed via this command:
+test	Checkout repository	2026-11-26T20:36:11.5983309Z hint:
+test	Checkout repository	2026-11-26T20:36:11.5983861Z hint: 	git branch -m <name>
+test	Checkout repository	2026-11-26T20:36:11.5984453Z hint:
+test	Checkout repository	2026-11-26T20:36:11.5985357Z hint: Disable this message with "git config set advice.defaultBranchName false"
+test	Checkout repository	2026-11-26T20:36:11.5986503Z Initialized empty Git repository in /home/runner/work/Lab5/Lab5/.git/
+test	Checkout repository	2026-11-26T20:36:11.5992066Z [command]/usr/bin/git remote add origin https://github.com/vesta-12/Lab5
+test	Checkout repository	2026-11-26T20:36:11.6039968Z ##[endgroup]
+test	Checkout repository	2026-11-26T20:36:11.6040646Z ##[group]Disabling automatic garbage collection
+test	Checkout repository	2026-11-26T20:36:11.6043519Z [command]/usr/bin/git config --local gc.auto 0
+test	Checkout repository	2026-11-26T20:36:11.6077178Z ##[endgroup]
+test	Checkout repository	2026-11-26T20:36:11.6078366Z ##[group]Setting up auth
+test	Checkout repository	2026-11-26T20:36:11.6078863Z Removing SSH command configuration
+test	Checkout repository	2026-11-26T20:36:11.6084059Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+test	Checkout repository	2026-11-26T20:36:11.6111198Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+test	Checkout repository	2026-11-26T20:36:11.6481483Z Removing HTTP extra header
+test	Checkout repository	2026-11-26T20:36:11.6485742Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+test	Checkout repository	2026-11-26T20:36:11.6514501Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+test	Checkout repository	2026-11-26T20:36:11.6726593Z Removing includeIf entries pointing to credentials config files
+test	Checkout repository	2026-11-26T20:36:11.6731050Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+test	Checkout repository	2026-11-26T20:36:11.6760113Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+test	Checkout repository	2026-11-26T20:36:11.6956339Z [command]/usr/bin/git config --file /home/runner/work/_temp/git-credentials-288195f7-fdf3-40d1-90d4-032583b8f8aa.config http.https://github.com/.extraheader AUTHORIZATION: basic ***
+test	Checkout repository	2026-11-26T20:36:11.6988176Z [command]/usr/bin/git config --local includeIf.gitdir:/home/runner/work/Lab5/Lab5/.git.path /home/runner/work/_temp/git-credentials-288195f7-fdf3-40d1-90d4-032583b8f8aa.config
+test	Checkout repository	2026-11-26T20:36:11.7015315Z [command]/usr/bin/git config --local includeIf.gitdir:/home/runner/work/Lab5/Lab5/.git/worktrees/*.path /home/runner/work/_temp/git-credentials-288195f7-fdf3-40d1-90d4-032583b8f8aa.config
+test	Checkout repository	2026-11-26T20:36:11.7043776Z [command]/usr/bin/git config --local includeIf.gitdir:/github/workspace/.git.path /github/runner_temp/git-credentials-288195f7-fdf3-40d1-90d4-032583b8f8aa.config
+test	Checkout repository	2026-11-26T20:36:11.7070893Z [command]/usr/bin/git config --local includeIf.gitdir:/github/workspace/.git/worktrees/*.path /github/runner_temp/git-credentials-288195f7-fdf3-40d1-90d4-032583b8f8aa.config
+test	Checkout repository	2026-11-26T20:36:11.7099325Z ##[endgroup]
+test	Checkout repository	2026-11-26T20:36:11.7100181Z ##[group]Fetching the repository
+test	Checkout repository	2026-11-26T20:36:11.7105919Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin +ebab758d03f9fcbeb24080f4dbe1f5c928b680a6:refs/remotes/origin/lab6-serverless-ci
+test	Checkout repository	2026-11-26T20:36:12.9959932Z From https://github.com/vesta-12/Lab5
+test	Checkout repository	2026-11-26T20:36:12.9963232Z  * [new ref]         ebab758d03f9fcbeb24080f4dbe1f5c928b680a6 -> origin/lab6-serverless-ci
+test	Checkout repository	2026-11-26T20:36:12.9967293Z [command]/usr/bin/git branch --list --remote origin/lab6-serverless-ci
+test	Checkout repository	2026-11-26T20:36:12.9988933Z   origin/lab6-serverless-ci
+test	Checkout repository	2026-11-26T20:36:12.9996160Z [command]/usr/bin/git rev-parse refs/remotes/origin/lab6-serverless-ci
+test	Checkout repository	2026-11-26T20:36:13.0013718Z ebab758d03f9fcbeb24080f4dbe1f5c928b680a6
+test	Checkout repository	2026-11-26T20:36:13.0022751Z ##[endgroup]
+test	Checkout repository	2026-11-26T20:36:13.0023711Z ##[group]Determining the checkout info
+test	Checkout repository	2026-11-26T20:36:13.0024793Z ##[endgroup]
+test	Checkout repository	2026-11-26T20:36:13.0026687Z [command]/usr/bin/git sparse-checkout disable
+test	Checkout repository	2026-11-26T20:36:13.0072072Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+test	Checkout repository	2026-11-26T20:36:13.0097369Z ##[group]Checking out the ref
+test	Checkout repository	2026-11-26T20:36:13.0100759Z [command]/usr/bin/git checkout --progress --force -B lab6-serverless-ci refs/remotes/origin/lab6-serverless-ci
+test	Checkout repository	2026-11-26T20:36:13.3350593Z Switched to a new branch 'lab6-serverless-ci'
+test	Checkout repository	2026-11-26T20:36:13.3354208Z branch 'lab6-serverless-ci' set up to track 'origin/lab6-serverless-ci'.
+test	Checkout repository	2026-11-26T20:36:13.3367297Z ##[endgroup]
+test	Checkout repository	2026-11-26T20:36:13.3410484Z [command]/usr/bin/git log -1 --format=%H
+test	Checkout repository	2026-11-26T20:36:13.3431720Z ebab758d03f9fcbeb24080f4dbe1f5c928b680a6
+test	Checkout repository	2026-11-26T20:36:13.3441567Z ##[group]Removing auth
+test	Checkout repository	2026-11-26T20:36:13.3442993Z Removing SSH command configuration
+test	Checkout repository	2026-11-26T20:36:13.3444630Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+test	Checkout repository	2026-11-26T20:36:13.3467911Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+test	Checkout repository	2026-11-26T20:36:13.3655005Z Removing HTTP extra header
+test	Checkout repository	2026-11-26T20:36:13.3657030Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+test	Checkout repository	2026-11-26T20:36:13.3678524Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+test	Checkout repository	2026-11-26T20:36:13.3854753Z Removing includeIf entries pointing to credentials config files
+test	Checkout repository	2026-11-26T20:36:13.3856830Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+test	Checkout repository	2026-11-26T20:36:13.3881393Z includeif.gitdir:/home/runner/work/Lab5/Lab5/.git.path
+test	Checkout repository	2026-11-26T20:36:13.3883873Z includeif.gitdir:/home/runner/work/Lab5/Lab5/.git/worktrees/*.path
+test	Checkout repository	2026-11-26T20:36:13.3885672Z includeif.gitdir:/github/workspace/.git.path
+test	Checkout repository	2026-11-26T20:36:13.3887187Z includeif.gitdir:/github/workspace/.git/worktrees/*.path
+test	Checkout repository	2026-11-26T20:36:13.3890456Z [command]/usr/bin/git config --local --get-all includeif.gitdir:/home/runner/work/Lab5/Lab5/.git.path
+test	Checkout repository	2026-11-26T20:36:13.3903192Z /home/runner/work/_temp/git-credentials-288195f7-fdf3-40d1-90d4-032583b8f8aa.config
+test	Checkout repository	2026-11-26T20:36:13.3911671Z [command]/usr/bin/git config --local --unset includeif.gitdir:/home/runner/work/Lab5/Lab5/.git.path \/home\/runner\/work\/_temp\/git\-credentials\-288195f7\-fdf3\-40d1\-90d4\-032583b8f8aa\.config
+test	Checkout repository	2026-11-26T20:36:13.3937099Z [command]/usr/bin/git config --local --get-all includeif.gitdir:/home/runner/work/Lab5/Lab5/.git/worktrees/*.path
+test	Checkout repository	2026-11-26T20:36:13.3955875Z /home/runner/work/_temp/git-credentials-288195f7-fdf3-40d1-90d4-032583b8f8aa.config
+test	Checkout repository	2026-11-26T20:36:13.3961963Z [command]/usr/bin/git config --local --unset includeif.gitdir:/home/runner/work/Lab5/Lab5/.git/worktrees/*.path \/home\/runner\/work\/_temp\/git\-credentials\-288195f7\-fdf3\-40d1\-90d4\-032583b8f8aa\.config
+test	Checkout repository	2026-11-26T20:36:13.3986878Z [command]/usr/bin/git config --local --get-all includeif.gitdir:/github/workspace/.git.path
+test	Checkout repository	2026-11-26T20:36:13.4008087Z /github/runner_temp/git-credentials-288195f7-fdf3-40d1-90d4-032583b8f8aa.config
+test	Checkout repository	2026-11-26T20:36:13.4013721Z [command]/usr/bin/git config --local --unset includeif.gitdir:/github/workspace/.git.path \/github\/runner_temp\/git\-credentials\-288195f7\-fdf3\-40d1\-90d4\-032583b8f8aa\.config
+test	Checkout repository	2026-11-26T20:36:13.4032451Z [command]/usr/bin/git config --local --get-all includeif.gitdir:/github/workspace/.git/worktrees/*.path
+test	Checkout repository	2026-11-26T20:36:13.4046809Z /github/runner_temp/git-credentials-288195f7-fdf3-40d1-90d4-032583b8f8aa.config
+test	Checkout repository	2026-11-26T20:36:13.4053554Z [command]/usr/bin/git config --local --unset includeif.gitdir:/github/workspace/.git/worktrees/*.path \/github\/runner_temp\/git\-credentials\-288195f7\-fdf3\-40d1\-90d4\-032583b8f8aa\.config
+test	Checkout repository	2026-11-26T20:36:13.4076846Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+test	Checkout repository	2026-11-26T20:36:13.4253223Z Removing credentials config '/home/runner/work/_temp/git-credentials-288195f7-fdf3-40d1-90d4-032583b8f8aa.config'
+test	Checkout repository	2026-11-26T20:36:13.4261796Z ##[endgroup]
+test	Set up Python 3.12	﻿2026-11-26T20:36:13.4530085Z ##[group]Run actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0
+test	Set up Python 3.12	2026-11-26T20:36:13.4531239Z with:
+test	Set up Python 3.12	2026-11-26T20:36:13.4531934Z   python-version: 3.12
+test	Set up Python 3.12	2026-11-26T20:36:13.4532687Z   cache: pip
+test	Set up Python 3.12	2026-11-26T20:36:13.4533492Z   cache-dependency-path: lab6/requirements-dev.txt
+test	Set up Python 3.12	2026-11-26T20:36:13.4534466Z   check-latest: false
+test	Set up Python 3.12	2026-11-26T20:36:13.4540673Z   token: ***
+test	Set up Python 3.12	2026-11-26T20:36:13.4541946Z   mirror: https://raw.githubusercontent.com/actions/python-versions/main
+test	Set up Python 3.12	2026-11-26T20:36:13.4543295Z   update-environment: true
+test	Set up Python 3.12	2026-11-26T20:36:13.4544594Z   allow-prereleases: false
+test	Set up Python 3.12	2026-11-26T20:36:13.4545576Z   freethreaded: false
+test	Set up Python 3.12	2026-11-26T20:36:13.4546309Z ##[endgroup]
+test	Set up Python 3.12	2026-11-26T20:36:13.5460227Z ##[group]Installed versions
+test	Set up Python 3.12	2026-11-26T20:36:13.5539130Z Successfully set up CPython (3.12.16)
+test	Set up Python 3.12	2026-11-26T20:36:13.5540614Z ##[endgroup]
+test	Set up Python 3.12	2026-11-26T20:36:13.5819553Z [command]/opt/hostedtoolcache/Python/3.12.16/x64/bin/pip cache dir
+test	Set up Python 3.12	2026-11-26T20:36:13.8061563Z /home/runner/.cache/pip
+test	Set up Python 3.12	2026-11-26T20:36:13.9921998Z Cache hit for: setup-python-Linux-x64-26.04-Ubuntu-python-3.12.16-pip-ed1517562d9022282b06609ac5b6a28b4ce958e7f42a4c930d3d806aa42abe21
+test	Set up Python 3.12	2026-11-26T20:36:14.5158896Z Received 597595 of 597595 (100.0%), 1.5 MBs/sec
+test	Set up Python 3.12	2026-11-26T20:36:14.5160081Z Cache Size: ~1 MB (597595 B)
+test	Set up Python 3.12	2026-11-26T20:36:14.5182768Z [command]/usr/bin/tar -xf /home/runner/work/_temp/92bdd2ac-6725-4ec0-b45d-70a8284ed1f5/cache.tzst -P -C /home/runner/work/Lab5/Lab5 --use-compress-program unzstd
+test	Set up Python 3.12	2026-11-26T20:36:14.5245480Z Cache restored successfully
+test	Set up Python 3.12	2026-11-26T20:36:14.5248805Z Cache restored from key: setup-python-Linux-x64-26.04-Ubuntu-python-3.12.16-pip-ed1517562d9022282b06609ac5b6a28b4ce958e7f42a4c930d3d806aa42abe21
+test	Install test dependencies	﻿2026-11-26T20:36:14.5367216Z ##[group]Run python -m pip install -r lab6/requirements-dev.txt
+test	Install test dependencies	2026-11-26T20:36:14.5367830Z ^[[36;1mpython -m pip install -r lab6/requirements-dev.txt^[[0m
+test	Install test dependencies	2026-11-26T20:36:14.5394298Z shell: /usr/bin/bash -e {0}
+test	Install test dependencies	2026-11-26T20:36:14.5394655Z env:
+test	Install test dependencies	2026-11-26T20:36:14.5395148Z   pythonLocation: /opt/hostedtoolcache/Python/3.12.16/x64
+test	Install test dependencies	2026-11-26T20:36:14.5395631Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.12.16/x64/lib/pkgconfig
+test	Install test dependencies	2026-11-26T20:36:14.5396049Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.16/x64
+test	Install test dependencies	2026-11-26T20:36:14.5396416Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.16/x64
+test	Install test dependencies	2026-11-26T20:36:14.5396786Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.16/x64
+test	Install test dependencies	2026-11-26T20:36:14.5397126Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.12.16/x64/lib
+test	Install test dependencies	2026-11-26T20:36:14.5397489Z ##[endgroup]
+test	Install test dependencies	2026-11-26T20:36:15.0961883Z Collecting pytest==8.3.5 (from -r lab6/requirements-dev.txt (line 1))
+test	Install test dependencies	2026-11-26T20:36:15.0971285Z   Using cached pytest-8.3.5-py3-none-any.whl.metadata (7.6 kB)
+test	Install test dependencies	2026-11-26T20:36:15.1009592Z Collecting iniconfig (from pytest==8.3.5->-r lab6/requirements-dev.txt (line 1))
+test	Install test dependencies	2026-11-26T20:36:15.1017776Z   Using cached iniconfig-2.3.1-py3-none-any.whl.metadata (2.8 kB)
+test	Install test dependencies	2026-11-26T20:36:15.1072828Z Collecting packaging (from pytest==8.3.5->-r lab6/requirements-dev.txt (line 1))
+test	Install test dependencies	2026-11-26T20:36:15.1080838Z   Using cached packaging-26.4-py3-none-any.whl.metadata (3.5 kB)
+test	Install test dependencies	2026-11-26T20:36:15.1115427Z Collecting pluggy<2,>=1.5 (from pytest==8.3.5->-r lab6/requirements-dev.txt (line 1))
+test	Install test dependencies	2026-11-26T20:36:15.1126696Z   Using cached pluggy-1.7.0-py3-none-any.whl.metadata (5.0 kB)
+test	Install test dependencies	2026-11-26T20:36:15.1148057Z Using cached pytest-8.3.5-py3-none-any.whl (343 kB)
+test	Install test dependencies	2026-11-26T20:36:15.1158580Z Using cached pluggy-1.7.0-py3-none-any.whl (27 kB)
+test	Install test dependencies	2026-11-26T20:36:15.1165689Z Using cached iniconfig-2.3.1-py3-none-any.whl (7.6 kB)
+test	Install test dependencies	2026-11-26T20:36:15.1173001Z Using cached packaging-26.4-py3-none-any.whl (140 kB)
+test	Install test dependencies	2026-11-26T20:36:15.1660199Z Installing collected packages: pluggy, packaging, iniconfig, pytest
+test	Install test dependencies	2026-11-26T20:36:15.4421193Z 
+test	Install test dependencies	2026-11-26T20:36:15.4430205Z Successfully installed iniconfig-2.3.1 packaging-26.4 pluggy-1.7.0 pytest-8.3.5
+test	Run all Lab 6 tests	﻿2026-11-26T20:36:15.5036237Z ##[group]Run python -m pytest lab6/tests -v
+test	Run all Lab 6 tests	2026-11-26T20:36:15.5036587Z ^[[36;1mpython -m pytest lab6/tests -v^[[0m
+test	Run all Lab 6 tests	2026-11-26T20:36:15.5057952Z shell: /usr/bin/bash -e {0}
+test	Run all Lab 6 tests	2026-11-26T20:36:15.5058313Z env:
+test	Run all Lab 6 tests	2026-11-26T20:36:15.5058592Z   pythonLocation: /opt/hostedtoolcache/Python/3.12.16/x64
+test	Run all Lab 6 tests	2026-11-26T20:36:15.5059010Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.12.16/x64/lib/pkgconfig
+test	Run all Lab 6 tests	2026-11-26T20:36:15.5059458Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.16/x64
+test	Run all Lab 6 tests	2026-11-26T20:36:15.5059882Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.16/x64
+test	Run all Lab 6 tests	2026-11-26T20:36:15.5060341Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.16/x64
+test	Run all Lab 6 tests	2026-11-26T20:36:15.5060794Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.12.16/x64/lib
+test	Run all Lab 6 tests	2026-11-26T20:36:15.5061233Z ##[endgroup]
+test	Run all Lab 6 tests	2026-11-26T20:36:15.8055669Z ============================= test session starts ==============================
+test	Run all Lab 6 tests	2026-11-26T20:36:15.8056362Z platform linux -- Python 3.12.16, pytest-8.3.5, pluggy-1.7.0 -- /opt/hostedtoolcache/Python/3.12.16/x64/bin/python
+test	Run all Lab 6 tests	2026-11-26T20:36:15.8056971Z cachedir: .pytest_cache
+test	Run all Lab 6 tests	2026-11-26T20:36:15.8057235Z rootdir: /home/runner/work/Lab5/Lab5
+test	Run all Lab 6 tests	2026-11-26T20:36:15.8621004Z collecting ... collected 40 items
+test	Run all Lab 6 tests	2026-11-26T20:36:15.8621331Z 
+test	Run all Lab 6 tests	2026-11-26T20:36:15.8628265Z lab6/tests/test_handler.py::test_time_returns_current_time_and_legacy_fields PASSED [  2%]
+test	Run all Lab 6 tests	2026-11-26T20:36:15.8632491Z lab6/tests/test_handler.py::test_echo_returns_reply_and_legacy_message PASSED [  5%]
+test	Run all Lab 6 tests	2026-11-26T20:36:15.8637632Z lab6/tests/test_handler.py::test_required_input_returns_400[missing-body] PASSED [  7%]
+test	Run all Lab 6 tests	2026-11-26T20:36:15.8642079Z lab6/tests/test_handler.py::test_required_input_returns_400[empty-body] PASSED [ 10%]
+test	Run all Lab 6 tests	2026-11-26T20:36:15.8646597Z lab6/tests/test_handler.py::test_required_input_returns_400[missing-message] PASSED [ 12%]
+test	Run all Lab 6 tests	2026-11-26T20:36:15.8650724Z lab6/tests/test_handler.py::test_malformed_json_returns_400[truncated-json] PASSED [ 15%]
+test	Run all Lab 6 tests	2026-11-26T20:36:15.8654992Z lab6/tests/test_handler.py::test_malformed_json_returns_400[non-json-number] PASSED [ 17%]
+test	Run all Lab 6 tests	2026-11-26T20:36:15.8659412Z lab6/tests/test_handler.py::test_malformed_json_returns_400[numeric-overflow] PASSED [ 20%]
+test	Run all Lab 6 tests	2026-11-26T20:36:15.8663636Z lab6/tests/test_handler.py::test_non_object_json_returns_400[array] PASSED [ 22%]
+test	Run all Lab 6 tests	2026-11-26T20:36:15.8667893Z lab6/tests/test_handler.py::test_non_object_json_returns_400[null] PASSED [ 25%]
+test	Run all Lab 6 tests	2026-11-26T20:36:15.8671402Z lab6/tests/test_handler.py::test_unknown_path_returns_404 PASSED         [ 27%]
+test	Run all Lab 6 tests	2026-11-26T20:36:15.8675965Z lab6/tests/test_handler.py::test_unsupported_method_and_path_returns_404[POST-/time] PASSED [ 30%]
+test	Run all Lab 6 tests	2026-11-26T20:36:15.8680319Z lab6/tests/test_handler.py::test_unsupported_method_and_path_returns_404[GET-/echo] PASSED [ 32%]
+test	Run all Lab 6 tests	2026-11-26T20:36:15.8684588Z lab6/tests/test_handler.py::test_echo_preserves_unicode_and_empty_string[unicode] PASSED [ 35%]
+test	Run all Lab 6 tests	2026-11-26T20:36:15.8689143Z lab6/tests/test_handler.py::test_echo_preserves_unicode_and_empty_string[empty-string] PASSED [ 37%]
+test	Run all Lab 6 tests	2026-11-26T20:36:15.8692725Z lab6/tests/test_handler.py::test_echo_preserves_legacy_json_value_types[null-value] PASSED [ 40%]
+test	Run all Lab 6 tests	2026-11-26T20:36:15.8697498Z lab6/tests/test_handler.py::test_echo_preserves_legacy_json_value_types[structured-value] PASSED [ 42%]
+test	Run all Lab 6 tests	2026-11-26T20:36:15.8701636Z lab6/tests/test_handler.py::test_gateway_base64_body[valid-base64] PASSED [ 45%]
+test	Run all Lab 6 tests	2026-11-26T20:36:15.8707013Z lab6/tests/test_handler.py::test_gateway_base64_body[invalid-base64] PASSED [ 47%]
+test	Run all Lab 6 tests	2026-11-26T20:36:15.8778527Z lab6/tests/test_intentional_ci_failure.py::test_intentional_ci_failure FAILED [ 50%]
+test	Run all Lab 6 tests	2026-11-26T20:36:15.8812337Z lab6/tests/test_local_runner.py::test_http_time_and_query_string[/time] PASSED [ 52%]
+test	Run all Lab 6 tests	2026-11-26T20:36:15.8829055Z lab6/tests/test_local_runner.py::test_http_time_and_query_string[/time?from=local&ignored=1] PASSED [ 55%]
+test	Run all Lab 6 tests	2026-11-26T20:36:15.8844172Z lab6/tests/test_local_runner.py::test_http_echo_unicode_and_query_string PASSED [ 57%]
+test	Run all Lab 6 tests	2026-11-26T20:36:15.8858376Z lab6/tests/test_local_runner.py::test_http_invalid_payload_returns_json_400[None] PASSED [ 60%]
+test	Run all Lab 6 tests	2026-11-26T20:36:15.8872090Z lab6/tests/test_local_runner.py::test_http_invalid_payload_returns_json_400[{}] PASSED [ 62%]
+test	Run all Lab 6 tests	2026-11-26T20:36:15.8884068Z lab6/tests/test_local_runner.py::test_http_invalid_payload_returns_json_400[{"message":] PASSED [ 65%]
+test	Run all Lab 6 tests	2026-11-26T20:36:15.8897071Z lab6/tests/test_local_runner.py::test_http_invalid_payload_returns_json_400[[]] PASSED [ 67%]
+test	Run all Lab 6 tests	2026-11-26T20:36:15.8909097Z lab6/tests/test_local_runner.py::test_http_invalid_payload_returns_json_400[{"message":"\xff"}] PASSED [ 70%]
+test	Run all Lab 6 tests	2026-11-26T20:36:15.8923567Z lab6/tests/test_local_runner.py::test_http_unknown_method_or_path_returns_json_404[GET-/unknown] PASSED [ 72%]
+test	Run all Lab 6 tests	2026-11-26T20:36:15.8937028Z lab6/tests/test_local_runner.py::test_http_unknown_method_or_path_returns_json_404[GET-/echo] PASSED [ 75%]
+test	Run all Lab 6 tests	2026-11-26T20:36:15.8951214Z lab6/tests/test_local_runner.py::test_http_unknown_method_or_path_returns_json_404[POST-/time] PASSED [ 77%]
+test	Run all Lab 6 tests	2026-11-26T20:36:15.8965531Z lab6/tests/test_local_runner.py::test_http_unknown_method_or_path_returns_json_404[PUT-/echo] PASSED [ 80%]
+test	Run all Lab 6 tests	2026-11-26T20:36:15.8978762Z lab6/tests/test_local_runner.py::test_http_unknown_method_or_path_returns_json_404[BREW-/time] PASSED [ 82%]
+test	Run all Lab 6 tests	2026-11-26T20:36:15.8989584Z lab6/tests/test_local_runner.py::test_http_head_returns_status_without_response_body PASSED [ 85%]
+test	Run all Lab 6 tests	2026-11-26T20:36:15.9000790Z lab6/tests/test_local_runner.py::test_http_malformed_framing_returns_json_400[Content-Length: -1\r\n\r\n] PASSED [ 87%]
+test	Run all Lab 6 tests	2026-11-26T20:36:15.9011678Z lab6/tests/test_local_runner.py::test_http_malformed_framing_returns_json_400[Content-Length: invalid\r\n\r\n] PASSED [ 90%]
+test	Run all Lab 6 tests	2026-11-26T20:36:15.9022899Z lab6/tests/test_local_runner.py::test_http_malformed_framing_returns_json_400[Content-Length: 2\r\nContent-Length: 2\r\n\r\n{}] PASSED [ 92%]
+test	Run all Lab 6 tests	2026-11-26T20:36:15.9033529Z lab6/tests/test_local_runner.py::test_http_malformed_framing_returns_json_400[Content-Length: 1048577\r\n\r\n] PASSED [ 95%]
+test	Run all Lab 6 tests	2026-11-26T20:36:15.9043858Z lab6/tests/test_local_runner.py::test_http_malformed_framing_returns_json_400[Transfer-Encoding: chunked\r\n\r\n0\r\n\r\n] PASSED [ 97%]
+test	Run all Lab 6 tests	2026-11-26T20:36:16.4073875Z lab6/tests/test_local_runner.py::test_http_malformed_framing_returns_json_400[Content-Length: 100\r\n\r\n{}] PASSED [100%]
+test	Run all Lab 6 tests	2026-11-26T20:36:16.4074445Z 
+test	Run all Lab 6 tests	2026-11-26T20:36:16.4074720Z =================================== FAILURES ===================================
+test	Run all Lab 6 tests	2026-11-26T20:36:16.4075359Z _________________________ test_intentional_ci_failure __________________________
+test	Run all Lab 6 tests	2026-11-26T20:36:16.4075613Z 
+test	Run all Lab 6 tests	2026-11-26T20:36:16.4075769Z     def test_intentional_ci_failure():
+test	Run all Lab 6 tests	2026-11-26T20:36:16.4076283Z >       assert False, "Intentional CI failure for GREEN -> RED -> GREEN evidence"
+test	Run all Lab 6 tests	2026-11-26T20:36:16.4076793Z E       AssertionError: Intentional CI failure for GREEN -> RED -> GREEN evidence
+test	Run all Lab 6 tests	2026-11-26T20:36:16.4077272Z E       assert False
+test	Run all Lab 6 tests	2026-11-26T20:36:16.4077453Z 
+test	Run all Lab 6 tests	2026-11-26T20:36:16.4077672Z lab6/tests/test_intentional_ci_failure.py:5: AssertionError
+test	Run all Lab 6 tests	2026-11-26T20:36:16.4078144Z =========================== short test summary info ============================
+test	Run all Lab 6 tests	2026-11-26T20:36:16.4078790Z FAILED lab6/tests/test_intentional_ci_failure.py::test_intentional_ci_failure - AssertionError: Intentional CI failure for GREEN -> RED -> GREEN evidence
+test	Run all Lab 6 tests	2026-11-26T20:36:16.4079277Z assert False
+test	Run all Lab 6 tests	2026-11-26T20:36:16.4079763Z ========================= 1 failed, 39 passed in 0.60s =========================
+test	Run all Lab 6 tests	2026-11-26T20:36:16.4349899Z ##[error]Process completed with exit code 1.
+test	Post Checkout repository	﻿2026-11-26T20:36:16.4477686Z Post job cleanup.
+test	Post Checkout repository	2026-11-26T20:36:16.5135587Z [command]/usr/bin/git version
+test	Post Checkout repository	2026-11-26T20:36:16.5166466Z git version 2.56.1
+test	Post Checkout repository	2026-11-26T20:36:16.5190620Z Temporarily overriding HOME='/home/runner/work/_temp/198efa46-f2d7-4cb1-8500-5a2f6ed4ab9a' before making global git config changes
+test	Post Checkout repository	2026-11-26T20:36:16.5191525Z Adding repository directory to the temporary git global config as a safe directory
+test	Post Checkout repository	2026-11-26T20:36:16.5195042Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/Lab5/Lab5
+test	Post Checkout repository	2026-11-26T20:36:16.5222131Z Removing SSH command configuration
+test	Post Checkout repository	2026-11-26T20:36:16.5227468Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+test	Post Checkout repository	2026-11-26T20:36:16.5252777Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+test	Post Checkout repository	2026-11-26T20:36:16.5452230Z Removing HTTP extra header
+test	Post Checkout repository	2026-11-26T20:36:16.5457308Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+test	Post Checkout repository	2026-11-26T20:36:16.5480560Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+test	Post Checkout repository	2026-11-26T20:36:16.5676686Z Removing includeIf entries pointing to credentials config files
+test	Post Checkout repository	2026-11-26T20:36:16.5680746Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+test	Post Checkout repository	2026-11-26T20:36:16.5702303Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+test	Complete job	﻿2026-11-26T20:36:16.6007365Z Cleaning up orphan processes
