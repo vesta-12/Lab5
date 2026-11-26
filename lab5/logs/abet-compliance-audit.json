@@ -1,0 +1,943 @@
+{
+  "audit_kind": "Offline documentation and preserved-evidence audit; no new experiment execution",
+  "audited_at_utc": "2026-11-20T12:16:51.122668+00:00",
+  "status": "PASS",
+  "experiments_repeated": false,
+  "group": {
+    "repo": "https://github.com/vesta-12/Lab4",
+    "ref": "main",
+    "commit": "171c1fcc643e3639cad2246cb028630fe3361255",
+    "path": "lab5/README.md",
+    "value": "ICT4401-ENG-1"
+  },
+  "criteria": [
+    {
+      "criterion": "MongoDB replica set and persistent volumes",
+      "status": "DONE",
+      "evidence": [
+        "docker-compose.yml",
+        "logs/final-verification.json"
+      ]
+    },
+    {
+      "criterion": "Three API copies behind nginx",
+      "status": "DONE",
+      "evidence": [
+        "nginx.conf",
+        "logs/compose-ps.log"
+      ]
+    },
+    {
+      "criterion": "served_by distribution",
+      "status": "DONE",
+      "evidence": [
+        "logs/distribution-baseline.json",
+        "logs/distribution-api2-down.json"
+      ]
+    },
+    {
+      "criterion": "At least eight automated cases with negative and edge inputs",
+      "status": "DONE",
+      "evidence": [
+        "tests/test_api.py",
+        "tests/cases.json",
+        "logs/pytest.xml"
+      ]
+    },
+    {
+      "criterion": "Expected/actual/pass-fail table linked to R IDs",
+      "status": "DONE",
+      "evidence": [
+        "test_report.md"
+      ]
+    },
+    {
+      "criterion": "Three or more load levels with p50, p95, RPS and error rate",
+      "status": "DONE",
+      "evidence": [
+        "logs/locust_10_final_stats.csv",
+        "logs/locust_50_final_stats.csv",
+        "logs/locust_100_final_stats.csv"
+      ]
+    },
+    {
+      "criterion": "Locust configuration and reproducible commands",
+      "status": "DONE",
+      "evidence": [
+        "tests/locustfile.py",
+        "README.md",
+        "test_report.md"
+      ]
+    },
+    {
+      "criterion": "Read/write behavior during API failure",
+      "status": "DONE",
+      "evidence": [
+        "logs/probe_api_down.txt",
+        "logs/probe_api_down_reads.txt"
+      ]
+    },
+    {
+      "criterion": "Read/write behavior during primary failure",
+      "status": "DONE",
+      "evidence": [
+        "logs/probe_primary_down.txt",
+        "logs/probe_primary_down_reads.txt",
+        "logs/probe_primary_crash.txt",
+        "logs/probe_primary_crash_reads.txt"
+      ]
+    },
+    {
+      "criterion": "Automatic primary election",
+      "status": "DONE",
+      "evidence": [
+        "logs/results.json",
+        "logs/supplementary-results.json"
+      ]
+    },
+    {
+      "criterion": "Measured recovery timeline",
+      "status": "DONE",
+      "evidence": [
+        "logs/supplementary-results.json"
+      ]
+    },
+    {
+      "criterion": "Previously acknowledged records retained",
+      "status": "DONE",
+      "evidence": [
+        "logs/results.json",
+        "logs/supplementary-results.json"
+      ]
+    },
+    {
+      "criterion": "Two prioritized recommendations and retest plan",
+      "status": "DONE",
+      "evidence": [
+        "test_report.md"
+      ]
+    },
+    {
+      "criterion": "Original logs, CSVs, screenshots and repeatable commands",
+      "status": "DONE",
+      "evidence": [
+        "logs/events.jsonl",
+        "screenshots/sources.json",
+        "README.md"
+      ]
+    },
+    {
+      "criterion": "Specification version 4 with R1-R50",
+      "status": "DONE",
+      "evidence": [
+        "spec.md"
+      ]
+    }
+  ],
+  "rubric": [
+    {
+      "category": "Part A: MongoDB and API",
+      "available_points": 5,
+      "status": "DONE"
+    },
+    {
+      "category": "Part B: load balancing",
+      "available_points": 5,
+      "status": "DONE"
+    },
+    {
+      "category": "Test cases",
+      "available_points": 4.5,
+      "status": "DONE"
+    },
+    {
+      "category": "Load tests",
+      "available_points": 4.5,
+      "status": "DONE"
+    },
+    {
+      "category": "Fault tolerance",
+      "available_points": 3,
+      "status": "DONE"
+    },
+    {
+      "category": "Analysis/recommendations",
+      "available_points": 3,
+      "status": "DONE"
+    }
+  ],
+  "available_points_covered": 25,
+  "grade_awarded": null,
+  "limitations": "Native Terminal captures were unavailable; image provenance is explicit. A unique server-side bottleneck was not causally isolated; the report identifies this as a hypothesis.",
+  "screenshots_linked_directly": [
+    "screenshots/01_replica_set.jpg",
+    "screenshots/02_compose.jpg",
+    "screenshots/03_records.jpg",
+    "screenshots/04_distribution.jpg",
+    "screenshots/05_api_down.jpg",
+    "screenshots/06_load_10.jpg",
+    "screenshots/07_load_50.jpg",
+    "screenshots/08_load_100.jpg",
+    "screenshots/09_primary_down.jpg",
+    "screenshots/10_final_roles.jpg",
+    "screenshots/11_primary_crash.jpg",
+    "screenshots/12_live_record.jpg"
+  ],
+  "references": {
+    "local_markdown_links": [
+      {
+        "document": "spec.md",
+        "line": 155,
+        "target": "logs/functional-http.jsonl",
+        "exists": true
+      },
+      {
+        "document": "spec.md",
+        "line": 156,
+        "target": "logs/functional-http.jsonl",
+        "exists": true
+      },
+      {
+        "document": "spec.md",
+        "line": 241,
+        "target": "logs/distribution-baseline.json",
+        "exists": true
+      },
+      {
+        "document": "spec.md",
+        "line": 245,
+        "target": "tests/locustfile.py",
+        "exists": true
+      },
+      {
+        "document": "spec.md",
+        "line": 245,
+        "target": "scripts/run_suite.py",
+        "exists": true
+      },
+      {
+        "document": "test_report.md",
+        "line": 10,
+        "target": "logs/environment.json",
+        "exists": true
+      },
+      {
+        "document": "test_report.md",
+        "line": 14,
+        "target": "tests/cases.json",
+        "exists": true
+      },
+      {
+        "document": "test_report.md",
+        "line": 14,
+        "target": "logs/pytest.log",
+        "exists": true
+      },
+      {
+        "document": "test_report.md",
+        "line": 14,
+        "target": "logs/pytest.xml",
+        "exists": true
+      },
+      {
+        "document": "test_report.md",
+        "line": 14,
+        "target": "logs/functional-http.jsonl",
+        "exists": true
+      },
+      {
+        "document": "test_report.md",
+        "line": 36,
+        "target": "logs/events.jsonl",
+        "exists": true
+      },
+      {
+        "document": "test_report.md",
+        "line": 36,
+        "target": "logs/mongo-record.log",
+        "exists": true
+      },
+      {
+        "document": "test_report.md",
+        "line": 36,
+        "target": "logs/mongo-client-config.log",
+        "exists": true
+      },
+      {
+        "document": "test_report.md",
+        "line": 36,
+        "target": "logs/init-idempotency.log",
+        "exists": true
+      },
+      {
+        "document": "test_report.md",
+        "line": 82,
+        "target": "logs/results.json",
+        "exists": true
+      },
+      {
+        "document": "test_report.md",
+        "line": 126,
+        "target": "logs/load-results.png",
+        "exists": true
+      },
+      {
+        "document": "test_report.md",
+        "line": 148,
+        "target": "logs/probe_api_down.txt",
+        "exists": true
+      },
+      {
+        "document": "test_report.md",
+        "line": 148,
+        "target": "logs/probe_api_down_reads.txt",
+        "exists": true
+      },
+      {
+        "document": "test_report.md",
+        "line": 178,
+        "target": "logs/probe_primary_down.txt",
+        "exists": true
+      },
+      {
+        "document": "test_report.md",
+        "line": 178,
+        "target": "logs/probe_primary_down_reads.txt",
+        "exists": true
+      },
+      {
+        "document": "test_report.md",
+        "line": 178,
+        "target": "logs/events.jsonl",
+        "exists": true
+      },
+      {
+        "document": "test_report.md",
+        "line": 178,
+        "target": "logs/results.json",
+        "exists": true
+      },
+      {
+        "document": "test_report.md",
+        "line": 203,
+        "target": "logs/probe_primary_crash.txt",
+        "exists": true
+      },
+      {
+        "document": "test_report.md",
+        "line": 203,
+        "target": "logs/probe_primary_crash_reads.txt",
+        "exists": true
+      },
+      {
+        "document": "test_report.md",
+        "line": 203,
+        "target": "logs/supplement-events.jsonl",
+        "exists": true
+      },
+      {
+        "document": "test_report.md",
+        "line": 203,
+        "target": "logs/supplementary-results.json",
+        "exists": true
+      },
+      {
+        "document": "test_report.md",
+        "line": 211,
+        "target": "logs/bottleneck-analysis.json",
+        "exists": true
+      },
+      {
+        "document": "test_report.md",
+        "line": 243,
+        "target": "screenshots/README.md",
+        "exists": true
+      },
+      {
+        "document": "test_report.md",
+        "line": 247,
+        "target": "screenshots/01_replica_set.jpg",
+        "exists": true
+      },
+      {
+        "document": "test_report.md",
+        "line": 248,
+        "target": "screenshots/02_compose.jpg",
+        "exists": true
+      },
+      {
+        "document": "test_report.md",
+        "line": 249,
+        "target": "screenshots/03_records.jpg",
+        "exists": true
+      },
+      {
+        "document": "test_report.md",
+        "line": 250,
+        "target": "screenshots/04_distribution.jpg",
+        "exists": true
+      },
+      {
+        "document": "test_report.md",
+        "line": 251,
+        "target": "screenshots/05_api_down.jpg",
+        "exists": true
+      },
+      {
+        "document": "test_report.md",
+        "line": 252,
+        "target": "screenshots/06_load_10.jpg",
+        "exists": true
+      },
+      {
+        "document": "test_report.md",
+        "line": 252,
+        "target": "screenshots/07_load_50.jpg",
+        "exists": true
+      },
+      {
+        "document": "test_report.md",
+        "line": 252,
+        "target": "screenshots/08_load_100.jpg",
+        "exists": true
+      },
+      {
+        "document": "test_report.md",
+        "line": 253,
+        "target": "screenshots/09_primary_down.jpg",
+        "exists": true
+      },
+      {
+        "document": "test_report.md",
+        "line": 254,
+        "target": "screenshots/10_final_roles.jpg",
+        "exists": true
+      },
+      {
+        "document": "test_report.md",
+        "line": 255,
+        "target": "screenshots/11_primary_crash.jpg",
+        "exists": true
+      },
+      {
+        "document": "test_report.md",
+        "line": 256,
+        "target": "screenshots/12_live_record.jpg",
+        "exists": true
+      },
+      {
+        "document": "test_report.md",
+        "line": 260,
+        "target": "screenshots/README.md",
+        "exists": true
+      },
+      {
+        "document": "test_report.md",
+        "line": 260,
+        "target": "logs/final-verification.json",
+        "exists": true
+      }
+    ],
+    "inline_file_references": [
+      {
+        "document": "spec.md",
+        "line": 94,
+        "target": "app/app.py",
+        "classification": "historical retained-lab reference",
+        "exists": true,
+        "resolved": "app/app.py"
+      },
+      {
+        "document": "spec.md",
+        "line": 95,
+        "target": "app/requirements.txt",
+        "classification": "historical retained-lab reference",
+        "exists": true,
+        "resolved": "app/requirements.txt"
+      },
+      {
+        "document": "spec.md",
+        "line": 155,
+        "target": "tests/test_api.py::test_TC01_time_served_by_R1_R42",
+        "classification": "current submission reference",
+        "exists": true,
+        "resolved": "lab5/tests/test_api.py",
+        "function_exists": true
+      },
+      {
+        "document": "spec.md",
+        "line": 156,
+        "target": "tests/test_api.py::test_TC02_echo_legacy_R2_R3",
+        "classification": "current submission reference",
+        "exists": true,
+        "resolved": "lab5/tests/test_api.py",
+        "function_exists": true
+      },
+      {
+        "document": "spec.md",
+        "line": 157,
+        "target": "tests/test_api.py::test_TC02_echo_legacy_R2_R3",
+        "classification": "current submission reference",
+        "exists": true,
+        "resolved": "lab5/tests/test_api.py",
+        "function_exists": true
+      },
+      {
+        "document": "spec.md",
+        "line": 158,
+        "target": "app/app.py",
+        "classification": "current submission reference",
+        "exists": true,
+        "resolved": "lab5/app/app.py"
+      },
+      {
+        "document": "spec.md",
+        "line": 159,
+        "target": "app/Dockerfile",
+        "classification": "historical retained-lab reference",
+        "exists": true,
+        "resolved": "app/Dockerfile"
+      },
+      {
+        "document": "spec.md",
+        "line": 161,
+        "target": "k8s/",
+        "classification": "historical retained-lab reference",
+        "exists": true,
+        "resolved": "k8s"
+      },
+      {
+        "document": "spec.md",
+        "line": 167,
+        "target": "logs/api-storage.log",
+        "classification": "historical retained-lab reference",
+        "exists": true,
+        "resolved": "lab4/logs/api-storage.log"
+      },
+      {
+        "document": "spec.md",
+        "line": 171,
+        "target": "logs/additional-live-checks.log",
+        "classification": "historical retained-lab reference",
+        "exists": true,
+        "resolved": "lab4/logs/additional-live-checks.log"
+      },
+      {
+        "document": "spec.md",
+        "line": 173,
+        "target": "logs/api-storage.log",
+        "classification": "historical retained-lab reference",
+        "exists": true,
+        "resolved": "lab4/logs/api-storage.log"
+      },
+      {
+        "document": "spec.md",
+        "line": 177,
+        "target": "logs/E4-manual-failover.log",
+        "classification": "historical retained-lab reference",
+        "exists": true,
+        "resolved": "lab4/logs/E4-manual-failover.log"
+      },
+      {
+        "document": "spec.md",
+        "line": 178,
+        "target": "logs/additional-live-checks.log",
+        "classification": "historical retained-lab reference",
+        "exists": true,
+        "resolved": "lab4/logs/additional-live-checks.log"
+      },
+      {
+        "document": "spec.md",
+        "line": 179,
+        "target": "logs/E1-normal.log",
+        "classification": "historical retained-lab reference",
+        "exists": true,
+        "resolved": "lab4/logs/E1-normal.log"
+      },
+      {
+        "document": "spec.md",
+        "line": 180,
+        "target": "logs/E2-replica-behind.log",
+        "classification": "historical retained-lab reference",
+        "exists": true,
+        "resolved": "lab4/logs/E2-replica-behind.log"
+      },
+      {
+        "document": "spec.md",
+        "line": 181,
+        "target": "logs/E3-read-own-write.log",
+        "classification": "historical retained-lab reference",
+        "exists": true,
+        "resolved": "lab4/logs/E3-read-own-write.log"
+      },
+      {
+        "document": "spec.md",
+        "line": 182,
+        "target": "logs/E4-manual-failover.log",
+        "classification": "historical retained-lab reference",
+        "exists": true,
+        "resolved": "lab4/logs/E4-manual-failover.log"
+      },
+      {
+        "document": "spec.md",
+        "line": 184,
+        "target": "app.py",
+        "classification": "historical retained-lab reference",
+        "exists": true,
+        "resolved": "lab4/app.py"
+      },
+      {
+        "document": "spec.md",
+        "line": 185,
+        "target": "logs/unit-tests.log",
+        "classification": "historical retained-lab reference",
+        "exists": true,
+        "resolved": "lab4/logs/unit-tests.log"
+      },
+      {
+        "document": "spec.md",
+        "line": 185,
+        "target": "logs/results.json",
+        "classification": "historical retained-lab reference",
+        "exists": true,
+        "resolved": "lab4/logs/results.json"
+      },
+      {
+        "document": "spec.md",
+        "line": 224,
+        "target": "README.md",
+        "classification": "historical retained-lab reference",
+        "exists": true,
+        "resolved": "lab4/README.md"
+      },
+      {
+        "document": "spec.md",
+        "line": 230,
+        "target": "run_suite.py",
+        "classification": "current submission reference",
+        "exists": true,
+        "resolved": "lab5/scripts/run_suite.py"
+      },
+      {
+        "document": "spec.md",
+        "line": 230,
+        "target": "logs/replica-status.log",
+        "classification": "current submission reference",
+        "exists": true,
+        "resolved": "lab5/logs/replica-status.log"
+      },
+      {
+        "document": "spec.md",
+        "line": 245,
+        "target": "logs/locust_*",
+        "classification": "current submission reference",
+        "exists": true,
+        "resolved": "lab5/logs/locust_1600_stats_history.csv"
+      },
+      {
+        "document": "spec.md",
+        "line": 291,
+        "target": "scripts/run_suite.py",
+        "classification": "current submission reference",
+        "exists": true,
+        "resolved": "lab5/scripts/run_suite.py"
+      },
+      {
+        "document": "test_report.md",
+        "line": 36,
+        "target": "scripts/run_suite.py",
+        "classification": "current submission reference",
+        "exists": true,
+        "resolved": "lab5/scripts/run_suite.py"
+      },
+      {
+        "document": "test_report.md",
+        "line": 40,
+        "target": "*_requests.csv",
+        "classification": "current submission reference",
+        "exists": true,
+        "resolved": "lab5/logs/locust_800_requests.csv"
+      },
+      {
+        "document": "test_report.md",
+        "line": 42,
+        "target": "*_final_stats.csv",
+        "classification": "current submission reference",
+        "exists": true,
+        "resolved": "lab5/logs/locust_1600_final_stats.csv"
+      },
+      {
+        "document": "test_report.md",
+        "line": 42,
+        "target": "*_stats.csv",
+        "classification": "current submission reference",
+        "exists": true,
+        "resolved": "lab5/logs/locust_200_stats.csv"
+      },
+      {
+        "document": "test_report.md",
+        "line": 42,
+        "target": "logs/runs/",
+        "classification": "current submission reference",
+        "exists": true,
+        "resolved": "lab5/logs/runs"
+      },
+      {
+        "document": "test_report.md",
+        "line": 112,
+        "target": "scripts/run_suite.py --extended",
+        "classification": "current submission reference",
+        "exists": true,
+        "resolved": "lab5/scripts/run_suite.py"
+      },
+      {
+        "document": "test_report.md",
+        "line": 137,
+        "target": "logs/distribution-*.json",
+        "classification": "current submission reference",
+        "exists": true,
+        "resolved": "lab5/logs/distribution-api2-down.json"
+      },
+      {
+        "document": "test_report.md",
+        "line": 260,
+        "target": "MANIFEST.sha256",
+        "classification": "current submission reference",
+        "exists": true,
+        "resolved": "lab5/MANIFEST.sha256"
+      },
+      {
+        "document": "README.md",
+        "line": 5,
+        "target": "test_report.md",
+        "classification": "current submission reference",
+        "exists": true,
+        "resolved": "lab5/test_report.md"
+      },
+      {
+        "document": "README.md",
+        "line": 5,
+        "target": "logs/",
+        "classification": "current submission reference",
+        "exists": true,
+        "resolved": "lab5/logs"
+      },
+      {
+        "document": "README.md",
+        "line": 11,
+        "target": "logs/environment.json",
+        "classification": "current submission reference",
+        "exists": true,
+        "resolved": "lab5/logs/environment.json"
+      },
+      {
+        "document": "README.md",
+        "line": 29,
+        "target": "scripts/run_suite.py --check-location",
+        "classification": "current submission reference",
+        "exists": true,
+        "resolved": "lab5/scripts/run_suite.py"
+      },
+      {
+        "document": "README.md",
+        "line": 62,
+        "target": "tests/cases.json",
+        "classification": "current submission reference",
+        "exists": true,
+        "resolved": "lab5/tests/cases.json"
+      },
+      {
+        "document": "README.md",
+        "line": 72,
+        "target": "scripts/run_supplement.py",
+        "classification": "current submission reference",
+        "exists": true,
+        "resolved": "lab5/scripts/run_supplement.py"
+      },
+      {
+        "document": "README.md",
+        "line": 74,
+        "target": "supplementary-results.json",
+        "classification": "current submission reference",
+        "exists": true,
+        "resolved": "lab5/logs/supplementary-results.json"
+      },
+      {
+        "document": "README.md",
+        "line": 78,
+        "target": "logs/runs/<unique-run-id>/",
+        "classification": "documented runtime/example output"
+      },
+      {
+        "document": "README.md",
+        "line": 78,
+        "target": "logs/",
+        "classification": "current submission reference",
+        "exists": true,
+        "resolved": "lab5/logs"
+      },
+      {
+        "document": "README.md",
+        "line": 84,
+        "target": "*_stats.csv",
+        "classification": "current submission reference",
+        "exists": true,
+        "resolved": "lab5/logs/locust_200_stats.csv"
+      },
+      {
+        "document": "README.md",
+        "line": 84,
+        "target": "*_final_stats.csv",
+        "classification": "current submission reference",
+        "exists": true,
+        "resolved": "lab5/logs/locust_1600_final_stats.csv"
+      },
+      {
+        "document": "README.md",
+        "line": 137,
+        "target": "spec.md",
+        "classification": "current submission reference",
+        "exists": true,
+        "resolved": "lab5/spec.md"
+      },
+      {
+        "document": "README.md",
+        "line": 137,
+        "target": "test_report.md",
+        "classification": "current submission reference",
+        "exists": true,
+        "resolved": "lab5/test_report.md"
+      },
+      {
+        "document": "README.md",
+        "line": 139,
+        "target": "screenshots/README.md",
+        "classification": "current submission reference",
+        "exists": true,
+        "resolved": "lab5/screenshots/README.md"
+      },
+      {
+        "document": "README.md",
+        "line": 139,
+        "target": "MANIFEST.sha256",
+        "classification": "current submission reference",
+        "exists": true,
+        "resolved": "lab5/MANIFEST.sha256"
+      },
+      {
+        "document": "README.md",
+        "line": 154,
+        "target": "test_report.md",
+        "classification": "current submission reference",
+        "exists": true,
+        "resolved": "lab5/test_report.md"
+      }
+    ],
+    "errors": [],
+    "scope_note": "Sections 1-10 of spec preserve historical Lab 2-4 requirements. Their inline evidence paths are checked in the retained repository, not claimed as Lab 5 ZIP contents. Runtime/example output paths are not missing experimental evidence."
+  },
+  "preserved_source_and_evidence_files": 241,
+  "pytest": {
+    "passed": 20,
+    "failed": 0,
+    "case_groups": 17
+  },
+  "load_levels": [
+    {
+      "users": 10,
+      "duration_configured_seconds": 60,
+      "request_count": 1902,
+      "rps": 31.80294566464288,
+      "median_ms": 4.0,
+      "p95_ms": 13.0,
+      "error_percent": 0.0,
+      "targets_pass": true
+    },
+    {
+      "users": 50,
+      "duration_configured_seconds": 60,
+      "request_count": 9518,
+      "rps": 158.97011659057856,
+      "median_ms": 3.0,
+      "p95_ms": 7.0,
+      "error_percent": 0.0,
+      "targets_pass": true
+    },
+    {
+      "users": 100,
+      "duration_configured_seconds": 60,
+      "request_count": 19001,
+      "rps": 317.6828635718215,
+      "median_ms": 3.0,
+      "p95_ms": 7.0,
+      "error_percent": 0.0,
+      "targets_pass": true
+    },
+    {
+      "users": 200,
+      "duration_configured_seconds": 30,
+      "request_count": 18400,
+      "rps": 616.7089057600915,
+      "median_ms": 2.0,
+      "p95_ms": 8.0,
+      "error_percent": 0.0,
+      "targets_pass": true
+    },
+    {
+      "users": 400,
+      "duration_configured_seconds": 30,
+      "request_count": 36454,
+      "rps": 1219.7953436685004,
+      "median_ms": 2.0,
+      "p95_ms": 32.0,
+      "error_percent": 0.0,
+      "targets_pass": true
+    },
+    {
+      "users": 800,
+      "duration_configured_seconds": 30,
+      "request_count": 60415,
+      "rps": 2019.0776928526348,
+      "median_ms": 37.0,
+      "p95_ms": 190.0,
+      "error_percent": 0.3906314656956054,
+      "targets_pass": true
+    },
+    {
+      "users": 1600,
+      "duration_configured_seconds": 30,
+      "request_count": 57107,
+      "rps": 1874.4233727622998,
+      "median_ms": 140.0,
+      "p95_ms": 430.0,
+      "error_percent": 5.505454672807186,
+      "targets_pass": false
+    }
+  ],
+  "failure_scenarios": [
+    {
+      "scenario": "API failure",
+      "read_samples": 70,
+      "write_samples": 70,
+      "write_http_503": 0,
+      "read_http_503": 0
+    },
+    {
+      "scenario": "Graceful primary stop",
+      "read_samples": 50,
+      "write_samples": 50,
+      "write_http_503": 0,
+      "read_http_503": 0
+    },
+    {
+      "scenario": "Abrupt primary crash",
+      "read_samples": 40,
+      "write_samples": 40,
+      "write_http_503": 2,
+      "read_http_503": 2
+    }
+  ],
+  "requirement_ids_and_bodies_unchanged": true,
+  "measured_numeric_rows_unchanged": true,
+  "1600_user_FAIL_preserved": true
+}

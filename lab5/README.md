@@ -1,6 +1,6 @@
 # Laboratory Work 5 - NoSQL, Fault Tolerance and Load Balancing
 
-Student: Sofiya Serbina. Course: Distributed & Cloud Computing. Group: ICT4401-ENG-1
+Student: Sofiya Serbina. Course: Distributed & Cloud Computing. Group: ICT4401-ENG-1.
 
 This laboratory lives in `lab5/` on `lab5-nosql-fault-tolerance`, based on the completed Lab 4 branch. Earlier laboratory code, deployments, reports and evidence stay unchanged. Current results are generated from the real evidence in `logs/`, never from mocked responses.
 
@@ -151,7 +151,7 @@ To regenerate the report and static chart from the selected completed run:
 
 Regenerating evidence pages does not recapture screenshots. Existing snapshots keep their original provenance. Refresh the manifest only after intentional updates to a submission.
 
-If the student's group must be added, edit the `Group:` field in `test_report.md`. Rebuild the ZIP and checksums with the standard-library packer (no third-party packages needed):
+The report generator reads the student's `Group:` from this README, so regenerating the report preserves the supplied group. Keep the metadata in README and `test_report.md` consistent. After intentional documentation updates, rebuild the ZIP and checksums with the standard-library packer (no third-party packages needed):
 
 ```bash
 python3 scripts/package_submission.py --output /absolute/output/Serbina_Sofiya_Lab5.zip

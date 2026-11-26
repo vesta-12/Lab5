@@ -1,0 +1,115 @@
+[2026-11-26T12:23:11.291626+00:00] Part B: original live curl responses, not mocked or reconstructed.
+[2026-11-26T12:23:11.302796+00:00] Python 3.12.16
+[2026-11-26T12:23:11.302841+00:00] B1 GET /time — actual command: /usr/bin/curl --silent --show-error --max-time 10 -i http://127.0.0.1:8000/time
+HTTP/1.0 200 OK
+Server: Lab6Local/1.0 
+Date: Thu, 26 Nov 2026 12:23:11 GMT
+Content-Type: application/json
+Content-Length: 136
+Connection: close
+
+{"time": "2026-11-26T12:23:11.326028+00:00", "server_time": "2026-11-26T12:23:11.326028+00:00", "served_by": "MacBook-Pro-Sofiya.local"}
+[2026-11-26T12:23:11.327065+00:00] Verified: PASS
+[2026-11-26T12:23:11.327114+00:00] B2 POST /echo — actual command: /usr/bin/curl --silent --show-error --max-time 10 -i -X POST -H 'Content-Type: application/json' --data-binary '{"message": "Hello from Lab 6"}' http://127.0.0.1:8000/echo
+HTTP/1.0 200 OK
+Server: Lab6Local/1.0 
+Date: Thu, 26 Nov 2026 12:23:11 GMT
+Content-Type: application/json
+Content-Length: 60
+Connection: close
+
+{"reply": "Hello from Lab 6", "message": "Hello from Lab 6"}
+[2026-11-26T12:23:11.333842+00:00] Verified: PASS
+[2026-11-26T12:23:11.333880+00:00] B3 Missing message — actual command: /usr/bin/curl --silent --show-error --max-time 10 -i -X POST -H 'Content-Type: application/json' --data-binary '{}' http://127.0.0.1:8000/echo
+HTTP/1.0 400 Bad Request
+Server: Lab6Local/1.0 
+Date: Thu, 26 Nov 2026 12:23:11 GMT
+Content-Type: application/json
+Content-Length: 40
+Connection: close
+
+{"error": "field 'message' is required"}
+[2026-11-26T12:23:11.340823+00:00] Verified: PASS
+[2026-11-26T12:23:11.340863+00:00] B3 Additional malformed JSON — actual command: /usr/bin/curl --silent --show-error --max-time 10 -i -X POST -H 'Content-Type: application/json' --data-binary '{"message":' http://127.0.0.1:8000/echo
+HTTP/1.0 400 Bad Request
+Server: Lab6Local/1.0 
+Date: Thu, 26 Nov 2026 12:23:11 GMT
+Content-Type: application/json
+Content-Length: 41
+Connection: close
+
+{"error": "body must contain valid JSON"}
+[2026-11-26T12:23:11.351383+00:00] Verified: PASS
+[2026-11-26T12:23:11.351432+00:00] B4 Unknown path — actual command: /usr/bin/curl --silent --show-error --max-time 10 -i http://127.0.0.1:8000/unknown
+HTTP/1.0 404 Not Found
+Server: Lab6Local/1.0 
+Date: Thu, 26 Nov 2026 12:23:11 GMT
+Content-Type: application/json
+Content-Length: 28
+Connection: close
+
+{"error": "route not found"}
+[2026-11-26T12:23:11.368037+00:00] Verified: PASS
+[2026-11-26T12:23:11.368094+00:00] B5 UTF-8 Unicode — actual command: /usr/bin/curl --silent --show-error --max-time 10 -i -X POST -H 'Content-Type: application/json' --data-binary '{"message": "Hello, Привет, 世界 👋"}' http://127.0.0.1:8000/echo
+HTTP/1.0 200 OK
+Server: Lab6Local/1.0 
+Date: Thu, 26 Nov 2026 12:23:11 GMT
+Content-Type: application/json
+Content-Length: 168
+Connection: close
+
+{"reply": "Hello, \u041f\u0440\u0438\u0432\u0435\u0442, \u4e16\u754c \ud83d\udc4b", "message": "Hello, \u041f\u0440\u0438\u0432\u0435\u0442, \u4e16\u754c \ud83d\udc4b"}
+[2026-11-26T12:23:11.375970+00:00] Verified: PASS
+[2026-11-26T12:23:11.376009+00:00] B6 Query separated from path — actual command: /usr/bin/curl --silent --show-error --max-time 10 -i 'http://127.0.0.1:8000/time?ignored=true'
+HTTP/1.0 200 OK
+Server: Lab6Local/1.0 
+Date: Thu, 26 Nov 2026 12:23:11 GMT
+Content-Type: application/json
+Content-Length: 136
+Connection: close
+
+{"time": "2026-11-26T12:23:11.382767+00:00", "server_time": "2026-11-26T12:23:11.382767+00:00", "served_by": "MacBook-Pro-Sofiya.local"}
+[2026-11-26T12:23:11.386181+00:00] Verified: PASS
+[2026-11-26T12:23:11.386203+00:00] B7 Unsupported method/path — actual command: /usr/bin/curl --silent --show-error --max-time 10 -i http://127.0.0.1:8000/echo
+HTTP/1.0 404 Not Found
+Server: Lab6Local/1.0 
+Date: Thu, 26 Nov 2026 12:23:11 GMT
+Content-Type: application/json
+Content-Length: 28
+Connection: close
+
+{"error": "route not found"}
+[2026-11-26T12:23:11.392839+00:00] Verified: PASS
+[2026-11-26T12:23:11.392929+00:00] CLI guard: LAB6_PORT=not-a-port; actual process output follows
+LAB6_PORT must be an integer from 1 to 65535
+[2026-11-26T12:23:11.441029+00:00] Verified process exit: 2
+[2026-11-26T12:23:11.441069+00:00] CLI guard: LAB6_PORT=8000; actual process output follows
+Cannot listen on 127.0.0.1:8000: [Errno 48] Address already in use. Choose a free LAB6_PORT.
+[2026-11-26T12:23:11.475528+00:00] Verified process exit: 1
+[2026-11-26T12:23:11.475580+00:00] B8 Existing server survives port-conflict check — actual command: /usr/bin/curl --silent --show-error --max-time 10 -i http://127.0.0.1:8000/time
+HTTP/1.0 200 OK
+Server: Lab6Local/1.0 
+Date: Thu, 26 Nov 2026 12:23:11 GMT
+Content-Type: application/json
+Content-Length: 136
+Connection: close
+
+{"time": "2026-11-26T12:23:11.481964+00:00", "server_time": "2026-11-26T12:23:11.481964+00:00", "served_by": "MacBook-Pro-Sofiya.local"}
+[2026-11-26T12:23:11.482400+00:00] Verified: PASS
+[2026-11-26T12:23:11.535634+00:00] B9 LAB6_PORT and module launch — actual command: /usr/bin/curl --silent --show-error --max-time 10 -i http://127.0.0.1:51537/time
+HTTP/1.0 200 OK
+Server: Lab6Local/1.0 
+Date: Thu, 26 Nov 2026 12:23:11 GMT
+Content-Type: application/json
+Content-Length: 136
+Connection: close
+
+{"time": "2026-11-26T12:23:11.543214+00:00", "server_time": "2026-11-26T12:23:11.543214+00:00", "served_by": "MacBook-Pro-Sofiya.local"}
+[2026-11-26T12:23:11.543863+00:00] Verified: PASS
+[2026-11-26T12:23:11.548451+00:00] Alternate runner stdout/stderr:
+Lab 6 local runner listening on http://127.0.0.1:51537 (Python 3.12.16)
+Press Ctrl+C to stop. Local HTTP emulation; no AWS deployment.
+127.0.0.1 - - [26/Nov/2026 17:23:11] "GET /time HTTP/1.1" 200 -
+
+Local runner stopped.
+[2026-11-26T12:23:11.548570+00:00] SUMMARY: all 10 curl checks and both CLI guards passed; alternate server stopped.

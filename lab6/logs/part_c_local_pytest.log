@@ -1,0 +1,48 @@
+============================= test session starts ==============================
+platform darwin -- Python 3.12.16, pytest-8.3.5, pluggy-1.7.0 -- /Users/sofiyaserbina/Lab3_Docker_Kubernetes_Lab4/lab6/.venv/bin/python
+cachedir: /Users/sofiyaserbina/Documents/Codex/2026-11-17/codex-complete-laboratory-work-4-data/work/lab6-stage3/pytest-cache
+rootdir: /Users/sofiyaserbina/Lab3_Docker_Kubernetes_Lab4
+collecting ... collected 39 items
+
+lab6/tests/test_handler.py::test_time_returns_current_time_and_legacy_fields PASSED [  2%]
+lab6/tests/test_handler.py::test_echo_returns_reply_and_legacy_message PASSED [  5%]
+lab6/tests/test_handler.py::test_required_input_returns_400[missing-body] PASSED [  7%]
+lab6/tests/test_handler.py::test_required_input_returns_400[empty-body] PASSED [ 10%]
+lab6/tests/test_handler.py::test_required_input_returns_400[missing-message] PASSED [ 12%]
+lab6/tests/test_handler.py::test_malformed_json_returns_400[truncated-json] PASSED [ 15%]
+lab6/tests/test_handler.py::test_malformed_json_returns_400[non-json-number] PASSED [ 17%]
+lab6/tests/test_handler.py::test_malformed_json_returns_400[numeric-overflow] PASSED [ 20%]
+lab6/tests/test_handler.py::test_non_object_json_returns_400[array] PASSED [ 23%]
+lab6/tests/test_handler.py::test_non_object_json_returns_400[null] PASSED [ 25%]
+lab6/tests/test_handler.py::test_unknown_path_returns_404 PASSED         [ 28%]
+lab6/tests/test_handler.py::test_unsupported_method_and_path_returns_404[POST-/time] PASSED [ 30%]
+lab6/tests/test_handler.py::test_unsupported_method_and_path_returns_404[GET-/echo] PASSED [ 33%]
+lab6/tests/test_handler.py::test_echo_preserves_unicode_and_empty_string[unicode] PASSED [ 35%]
+lab6/tests/test_handler.py::test_echo_preserves_unicode_and_empty_string[empty-string] PASSED [ 38%]
+lab6/tests/test_handler.py::test_echo_preserves_legacy_json_value_types[null-value] PASSED [ 41%]
+lab6/tests/test_handler.py::test_echo_preserves_legacy_json_value_types[structured-value] PASSED [ 43%]
+lab6/tests/test_handler.py::test_gateway_base64_body[valid-base64] PASSED [ 46%]
+lab6/tests/test_handler.py::test_gateway_base64_body[invalid-base64] PASSED [ 48%]
+lab6/tests/test_local_runner.py::test_http_time_and_query_string[/time] PASSED [ 51%]
+lab6/tests/test_local_runner.py::test_http_time_and_query_string[/time?from=local&ignored=1] PASSED [ 53%]
+lab6/tests/test_local_runner.py::test_http_echo_unicode_and_query_string PASSED [ 56%]
+lab6/tests/test_local_runner.py::test_http_invalid_payload_returns_json_400[None] PASSED [ 58%]
+lab6/tests/test_local_runner.py::test_http_invalid_payload_returns_json_400[{}] PASSED [ 61%]
+lab6/tests/test_local_runner.py::test_http_invalid_payload_returns_json_400[{"message":] PASSED [ 64%]
+lab6/tests/test_local_runner.py::test_http_invalid_payload_returns_json_400[[]] PASSED [ 66%]
+lab6/tests/test_local_runner.py::test_http_invalid_payload_returns_json_400[{"message":"\xff"}] PASSED [ 69%]
+lab6/tests/test_local_runner.py::test_http_unknown_method_or_path_returns_json_404[GET-/unknown] PASSED [ 71%]
+lab6/tests/test_local_runner.py::test_http_unknown_method_or_path_returns_json_404[GET-/echo] PASSED [ 74%]
+lab6/tests/test_local_runner.py::test_http_unknown_method_or_path_returns_json_404[POST-/time] PASSED [ 76%]
+lab6/tests/test_local_runner.py::test_http_unknown_method_or_path_returns_json_404[PUT-/echo] PASSED [ 79%]
+lab6/tests/test_local_runner.py::test_http_unknown_method_or_path_returns_json_404[BREW-/time] PASSED [ 82%]
+lab6/tests/test_local_runner.py::test_http_head_returns_status_without_response_body PASSED [ 84%]
+lab6/tests/test_local_runner.py::test_http_malformed_framing_returns_json_400[Content-Length: -1\r\n\r\n] PASSED [ 87%]
+lab6/tests/test_local_runner.py::test_http_malformed_framing_returns_json_400[Content-Length: invalid\r\n\r\n] PASSED [ 89%]
+lab6/tests/test_local_runner.py::test_http_malformed_framing_returns_json_400[Content-Length: 2\r\nContent-Length: 2\r\n\r\n{}] PASSED [ 92%]
+lab6/tests/test_local_runner.py::test_http_malformed_framing_returns_json_400[Content-Length: 1048577\r\n\r\n] PASSED [ 94%]
+lab6/tests/test_local_runner.py::test_http_malformed_framing_returns_json_400[Transfer-Encoding: chunked\r\n\r\n0\r\n\r\n] PASSED [ 97%]
+lab6/tests/test_local_runner.py::test_http_malformed_framing_returns_json_400[Content-Length: 100\r\n\r\n{}] PASSED [100%]
+
+- generated xml file: /Users/sofiyaserbina/Documents/Codex/2026-11-17/codex-complete-laboratory-work-4-data/work/lab6-stage3/local-pytest.xml -
+============================== 39 passed in 0.55s ==============================

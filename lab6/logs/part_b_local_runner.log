@@ -1,0 +1,13 @@
+Lab 6 local runner listening on http://127.0.0.1:8000 (Python 3.12.16)
+Press Ctrl+C to stop. Local HTTP emulation; no AWS deployment.
+127.0.0.1 - - [26/Nov/2026 17:23:11] "GET /time HTTP/1.1" 200 -
+127.0.0.1 - - [26/Nov/2026 17:23:11] "POST /echo HTTP/1.1" 200 -
+127.0.0.1 - - [26/Nov/2026 17:23:11] "POST /echo HTTP/1.1" 400 -
+127.0.0.1 - - [26/Nov/2026 17:23:11] "POST /echo HTTP/1.1" 400 -
+127.0.0.1 - - [26/Nov/2026 17:23:11] "GET /unknown HTTP/1.1" 404 -
+127.0.0.1 - - [26/Nov/2026 17:23:11] "POST /echo HTTP/1.1" 200 -
+127.0.0.1 - - [26/Nov/2026 17:23:11] "GET /time?ignored=true HTTP/1.1" 200 -
+127.0.0.1 - - [26/Nov/2026 17:23:11] "GET /echo HTTP/1.1" 404 -
+127.0.0.1 - - [26/Nov/2026 17:23:11] "GET /time HTTP/1.1" 200 -
+
+Local runner stopped.

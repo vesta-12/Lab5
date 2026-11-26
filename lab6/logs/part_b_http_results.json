@@ -1,0 +1,111 @@
+{
+  "checked_at_utc": "2026-11-26T12:23:11.548625+00:00",
+  "python": "3.12.16",
+  "main_port": 8000,
+  "alternate_port": 51537,
+  "curl_checks_passed": 10,
+  "cli_guards_passed": 2,
+  "observations": [
+    {
+      "case": "B1 GET /time",
+      "port": 8000,
+      "path": "/time",
+      "status": 200,
+      "payload": {
+        "time": "2026-11-26T12:23:11.326028+00:00",
+        "server_time": "2026-11-26T12:23:11.326028+00:00",
+        "served_by": "MacBook-Pro-Sofiya.local"
+      }
+    },
+    {
+      "case": "B2 POST /echo",
+      "port": 8000,
+      "path": "/echo",
+      "status": 200,
+      "payload": {
+        "reply": "Hello from Lab 6",
+        "message": "Hello from Lab 6"
+      }
+    },
+    {
+      "case": "B3 Missing message",
+      "port": 8000,
+      "path": "/echo",
+      "status": 400,
+      "payload": {
+        "error": "field 'message' is required"
+      }
+    },
+    {
+      "case": "B3 Additional malformed JSON",
+      "port": 8000,
+      "path": "/echo",
+      "status": 400,
+      "payload": {
+        "error": "body must contain valid JSON"
+      }
+    },
+    {
+      "case": "B4 Unknown path",
+      "port": 8000,
+      "path": "/unknown",
+      "status": 404,
+      "payload": {
+        "error": "route not found"
+      }
+    },
+    {
+      "case": "B5 UTF-8 Unicode",
+      "port": 8000,
+      "path": "/echo",
+      "status": 200,
+      "payload": {
+        "reply": "Hello, Привет, 世界 👋",
+        "message": "Hello, Привет, 世界 👋"
+      }
+    },
+    {
+      "case": "B6 Query separated from path",
+      "port": 8000,
+      "path": "/time?ignored=true",
+      "status": 200,
+      "payload": {
+        "time": "2026-11-26T12:23:11.382767+00:00",
+        "server_time": "2026-11-26T12:23:11.382767+00:00",
+        "served_by": "MacBook-Pro-Sofiya.local"
+      }
+    },
+    {
+      "case": "B7 Unsupported method/path",
+      "port": 8000,
+      "path": "/echo",
+      "status": 404,
+      "payload": {
+        "error": "route not found"
+      }
+    },
+    {
+      "case": "B8 Existing server survives port-conflict check",
+      "port": 8000,
+      "path": "/time",
+      "status": 200,
+      "payload": {
+        "time": "2026-11-26T12:23:11.481964+00:00",
+        "server_time": "2026-11-26T12:23:11.481964+00:00",
+        "served_by": "MacBook-Pro-Sofiya.local"
+      }
+    },
+    {
+      "case": "B9 LAB6_PORT and module launch",
+      "port": 51537,
+      "path": "/time",
+      "status": 200,
+      "payload": {
+        "time": "2026-11-26T12:23:11.543214+00:00",
+        "server_time": "2026-11-26T12:23:11.543214+00:00",
+        "served_by": "MacBook-Pro-Sofiya.local"
+      }
+    }
+  ],
+  "raw_log_sha256": "d4a683b750ca4894d264e2fec3767d6ae051d04f0abd1a0ff591a3ce3ecbd120"
+}

@@ -1,0 +1,42 @@
+[
+  {
+    "file": "06_ci_first_green.jpg",
+    "description": "Initial GREEN workflow",
+    "source_url": "https://github.com/vesta-12/Lab5/actions/runs/45892096178",
+    "captured_at_utc": "2026-11-26T20:37:14.628134+00:00",
+    "sha256": "15892df164ee35c4ef03dced233f5400728bc21ea942b5358ad07012e8b410db",
+    "kind": "Unmodified screenshot of actual GitHub browser UI"
+  },
+  {
+    "file": "07_ci_intentional_red.jpg",
+    "description": "Intentional RED workflow",
+    "source_url": "https://github.com/vesta-12/Lab5/actions/runs/45892227649",
+    "captured_at_utc": "2026-11-26T20:37:42.046973+00:00",
+    "sha256": "3d1e75838686cd1e7b4608a8f91d622717326100145aa5c1a330747a4b0c0838",
+    "kind": "Unmodified screenshot of actual GitHub browser UI"
+  },
+  {
+    "file": "08_ci_package_skipped.jpg",
+    "description": "Package job skipped after test failure",
+    "source_url": "https://github.com/vesta-12/Lab5/actions/runs/45892227649/job/140157479825",
+    "captured_at_utc": "2026-11-26T20:38:08.226541+00:00",
+    "sha256": "5e998893df9e85579383617af2c54c0732aaf5e9d232885f603e5811a3270d16",
+    "kind": "Unmodified screenshot of actual GitHub browser UI"
+  },
+  {
+    "file": "09_ci_restored_green.jpg",
+    "description": "Restored GREEN workflow",
+    "source_url": "https://github.com/vesta-12/Lab5/actions/runs/45892413211",
+    "captured_at_utc": "2026-11-26T20:38:25.052112+00:00",
+    "sha256": "470687053ac8da4d8cd61378b7d6c4e058012fbaf8e9d33a82ee35a8dc1c3a12",
+    "kind": "Unmodified screenshot of actual GitHub browser UI"
+  },
+  {
+    "file": "10_ci_artifact.jpg",
+    "description": "Uploaded lambda-package artifact",
+    "source_url": "https://github.com/vesta-12/Lab5/actions/runs/45892413211#artifacts",
+    "captured_at_utc": "2026-11-26T20:38:48.532614+00:00",
+    "sha256": "229db701d60d7ff094a48b18af1ecb85ab4ba514f6961106df68a3aa366c5117",
+    "kind": "Unmodified screenshot of actual GitHub browser UI"
+  }
+]

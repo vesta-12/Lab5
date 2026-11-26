@@ -25,6 +25,36 @@ def table(headers,rows):
 def stamp(row):
     return row['end_utc'] if row else None
 
+def student_group():
+    """Use supplied README metadata; never invent a group on regeneration."""
+    match=re.search(r'\bGroup:\s*([^\r\n]+)',(ROOT/'README.md').read_text())
+    return match.group(1).strip().rstrip('.') if match else 'Not provided'
+
+def screenshot_evidence():
+    evidence=[
+      ('MongoDB replica set',[('Replica set','01_replica_set.jpg')]),
+      ('Docker Compose',[('Services','02_compose.jpg')]),
+      ('Record creation and reading',[('POST and GET','03_records.jpg')]),
+      ('nginx distribution',[('30 requests','04_distribution.jpg')]),
+      ('API failure',[('api2 stopped','05_api_down.jpg')]),
+      ('Load tests',[('10 users','06_load_10.jpg'),('50 users','07_load_50.jpg'),('100 users','08_load_100.jpg')]),
+      ('MongoDB automatic election',[('Graceful primary stop','09_primary_down.jpg')]),
+      ('Restored topology',[('Final roles','10_final_roles.jpg')]),
+      ('Abrupt primary crash',[('Crash and recovery','11_primary_crash.jpg')]),
+      ('Live record',[('Live API response','12_live_record.jpg')]),
+    ]
+    rows=[]
+    for description,images in evidence:
+        for _label,name in images:
+            assert (ROOT/'screenshots'/name).is_file(),'Missing evidence image: '+name
+        rows.append([description,', '.join('['+label+'](screenshots/'+name+')' for label,name in images)])
+    return ['## Screenshots and Evidence',
+      'Images 01-11 are genuine browser captures of explicitly labelled archived log evidence, '
+      'not new Terminal screenshots or live replays. Image 12 captures a live record response '
+      'through nginx. Original logs and CSVs remain the authoritative measurements; full '
+      'provenance is in [screenshots/README.md](screenshots/README.md).',
+      table(['Evidence','Screenshot'],rows)]
+
 def resources(level):
     file=LOG/('locust_'+str(level['users'])+'_resources.jsonl')
     samples=lines(file)
@@ -54,7 +84,7 @@ def main():
     all_load=result['load']+result.get('exploratory_load',[])+supplement.get('diagnostic_load',[])
     summary_resources={str(x['users']):resources(x) for x in all_load}
     (LOG/'resource-summary.json').write_text(json.dumps(summary_resources,indent=2)+'\n')
-    report=['# Test Report - Lab 5','Student: Sofiya Serbina  \nGroup: Not provided',
+    report=['# Test Report - Lab 5','Student: Sofiya Serbina  \nGroup: '+student_group(),
       'Tested service: stateless Flask record API at '+result['base_url']+'.  \n'
       'Environment: Docker Compose project lab5; three API copies, nginx, MongoDB rs0 with three nodes.  \n'
       'Selected live run: `'+result['run_id']+'`, completed '+result['completed_utc']+'. '
@@ -119,7 +149,7 @@ def main():
         load_rows.append([x['users'],str(x['duration_configured_seconds'])+' s',x['rps'],x['median_ms'],
           x['p95_ms'],x['error_percent'],'R48: p95 <=1000 ms; errors <=1%',
           'PASS' if x['targets_pass'] else 'FAIL'])
-    report += [table(['Users','Duration','RPS','Median, ms','p95, ms','Errors, %','Target from spec.md','Pass/Fail'],load_rows)]
+    report += [table(['Users','Duration','RPS','Median (p50), ms','p95, ms','Errors, %','Target from spec.md','Pass/Fail'],load_rows)]
     if result.get('exploratory_load'):
         report.append('Levels above 100 users are explicitly exploratory, use 30 s rather than 60 s, '
           'and keep the same workload/server configuration. They are not substituted for the three '
@@ -129,7 +159,7 @@ def main():
         for row in x['stats']:
             detail.append([x['users'],(row['Type']+' '+row['Name']).strip(),row['Request Count'],
               row['Failure Count'],float(row['Requests/s']),row['Median Response Time'],row['95%']])
-    report += [table(['Users','Endpoint','Requests','Failures','RPS','Median, ms','p95, ms'],detail),
+    report += [table(['Users','Endpoint','Requests','Failures','RPS','Median (p50), ms','p95, ms'],detail),
       'Commands (run from `lab5/`; the actual absolute CSV paths, raw/final CSV environment settings '
       'and wall-clock start/end are in [results.json](logs/results.json)):']
     for x in all_load:
@@ -331,6 +361,7 @@ def main():
       'promotion, application redirection and reconciliation. Here MongoDB\'s voting replica '
       'set elects a new primary and PyMongo discovers it from the seed list without changing '
       'application source or manually promoting a node.',
+      *screenshot_evidence(),
       '## Evidence and references',
       'The submitted screenshots are identified individually in [screenshots/README.md](screenshots/README.md). '
       'Archived-log browser captures are labelled as such and do not impersonate a live terminal. '

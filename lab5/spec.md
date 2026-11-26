@@ -152,10 +152,10 @@ The identifiers are stable starting with Version 3. A retained requirement is no
 
 | ID | Requirement | Verification / evidence |
 | --- | --- | --- |
-| R1 | GET `/time` returns 200 with string `server_time` and `served_by`. | `tests/test_api.py::test_legacy_contract`; `logs/api-storage.log` |
-| R2 | POST `/echo` returns 200 and the submitted `message`. | Same test and live log as R1 |
-| R3 | Missing message or malformed/non-object JSON on `/echo` returns JSON 400. | `test_legacy_contract`; live missing-message check |
-| R4 | The REST process keeps no per-client session or file state on disk. | Code review of `app.py`; restart persistence check |
+| R1 | GET `/time` returns 200 with string `server_time` and `served_by`. | `tests/test_api.py::test_TC01_time_served_by_R1_R42`; [Lab 5 HTTP observations](logs/functional-http.jsonl) |
+| R2 | POST `/echo` returns 200 and the submitted `message`. | `tests/test_api.py::test_TC02_echo_legacy_R2_R3`; [Lab 5 HTTP observations](logs/functional-http.jsonl) |
+| R3 | Missing message or malformed/non-object JSON on `/echo` returns JSON 400. | `tests/test_api.py::test_TC02_echo_legacy_R2_R3`; live missing-message check |
+| R4 | The REST process keeps no per-client session or file state on disk. | Code review of `app/app.py`; restart persistence check |
 | R5 | Retain the Lab 3 Python 3.12 image and dependency-first Docker build. | Historical `app/Dockerfile`, unchanged; not re-run in Lab 4 |
 | R6 | Retain Lab 3 container 5000 / host 5001 mapping. | Historical root Compose, unchanged; not re-run in Lab 4 |
 | R7 | Retain the three-pod Deployment and matching NodePort Service. | Historical `k8s/`, unchanged; not re-run in Lab 4 |
@@ -238,11 +238,11 @@ The runner uses the standard topology and fixed host ports 5002/6379/6380 for re
 | R40 | Three API processes keep records only in MongoDB, with one shared MongoClient/pool per process. Data can be read through another API and after API restart. | TC12; restart/persistence and MongoDB inspection |
 | R41 | Compose project is lab5. Only nginx is exposed on host loopback. MongoDB is on an internal Docker network, unexposed and unauthenticated for the local lab. Each node has its own named volume. URI and database are environment configuration. | Compose config, port and mount inspection |
 | R42 | api1/api2/api3 run identical images on 0.0.0.0:5000, hostnames api1/api2/api3. GET `/time` retains R1; POST `/echo` retains R2/R3. | TC01, TC02, TC12; image inspection |
-| R43 | Exactly 30 baseline GET `/time` requests via nginx must reach at least two API hostnames, with statuses and counts retained. | `distribution()` baseline; `logs/distribution.json` |
+| R43 | Exactly 30 baseline GET `/time` requests via nginx must reach at least two API hostnames, with statuses and counts retained. | `distribution()` baseline; [logs/distribution-baseline.json](logs/distribution-baseline.json) |
 | R44 | During a roughly 20 s api2 stop, only api1/api3 may answer the separate 30-request distribution. Probes quantify actual errors; api2 must rejoin after restart. nginx uses max_fails=1, fail_timeout=5s, bounded upstream attempts and no `non_idempotent` retry. | API failure scenario and probe_api_down.txt |
 | R45 | Stopping the dynamically identified MongoDB primary triggers an automatic election; observe a different primary and successful writes while the old node is still stopped. No manual promotion/reconfiguration is allowed. | Primary failure scenario, role timeline and probe_primary_down.txt |
 | R46 | Previously acknowledged control records remain readable after election and return of the old node. | Primary failure read probes and retention assertions |
-| R47 | Run a fixed 3:1 GET /time:POST /records workload with 0.1-0.5 s think time at 10/50/100 users for 60 s each, preserving CSV, commands, ramp-up and resource samples. | Locust files; run_load.py; logs/locust_* |
+| R47 | Run a fixed 3:1 GET /time:POST /records workload with 0.1-0.5 s think time at 10/50/100 users for 60 s each, preserving CSV, commands, ramp-up and resource samples. | [tests/locustfile.py](tests/locustfile.py); [scripts/run_suite.py](scripts/run_suite.py), functions `load_tests` / `load_level`; `logs/locust_*` |
 | R48 | Self-selected educational targets, declared BEFORE measurements: aggregate and each endpoint p95 <= 1,000 ms and failure rate <= 1% at all three normal-load levels. RPS has no artificial minimum because think time limits offered load. These are not instructor-supplied SLAs. Optional saturation runs use the same workload and are exploratory. | Targets compared with original Locust stats CSV in test_report.md |
 | R49 | At least eight traceable cases include negative, edge and failure cases; preserve actual/expected outcomes, per-request timings, fault command times, resources and unmodified CSV. | functional-results.jsonl, raw requests CSV, run summary, report |
 | R50 | Every controlled stop restores Lab 5 services, verifies one primary/two secondaries and retains volumes and prior labs. Evidence is immutable; repeat runs have unique directories. | finally blocks, final topology, original-file audit |

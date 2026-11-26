@@ -1,7 +1,7 @@
 # Test Report - Lab 5
 
 Student: Sofiya Serbina  
-Group: Not provided
+Group: ICT4401-ENG-1
 
 Tested service: stateless Flask record API at http://127.0.0.1:8080.  
 Environment: Docker Compose project lab5; three API copies, nginx, MongoDB rs0 with three nodes.  
@@ -43,7 +43,7 @@ The report uses native Locust `*_final_stats.csv`, exported after runner shutdow
 
 Targets were committed in spec R48 before measurement: p95 <= 1,000 ms and failures <= 1% for each endpoint and aggregate at the three mandatory normal-load levels. They are self-selected educational targets, not instructor-provided SLAs. No RPS minimum was invented.
 
-| Users | Duration | RPS | Median, ms | p95, ms | Errors, % | Target from spec.md | Pass/Fail |
+| Users | Duration | RPS | Median (p50), ms | p95, ms | Errors, % | Target from spec.md | Pass/Fail |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | 10 | 60 s | 31.803 | 4.000 | 13.000 | 0.000 | R48: p95 <=1000 ms; errors <=1% | PASS |
 | 50 | 60 s | 158.970 | 3.000 | 7.000 | 0.000 | R48: p95 <=1000 ms; errors <=1% | PASS |
@@ -55,7 +55,7 @@ Targets were committed in spec R48 before measurement: p95 <= 1,000 ms and failu
 
 Levels above 100 users are explicitly exploratory, use 30 s rather than 60 s, and keep the same workload/server configuration. They are not substituted for the three mandatory 60 s levels. Target breaches remain visible rather than changing the target.
 
-| Users | Endpoint | Requests | Failures | RPS | Median, ms | p95, ms |
+| Users | Endpoint | Requests | Failures | RPS | Median (p50), ms | p95, ms |
 | --- | --- | --- | --- | --- | --- | --- |
 | 10 | POST /records | 499 | 0 | 8.344 | 8 | 18 |
 | 10 | GET /time | 1403 | 0 | 23.459 | 3 | 9 |
@@ -237,6 +237,23 @@ The api2-down distribution above excludes api2 and shows the remaining copies re
 ### 4. Why must the service be stateless?
 
 nginx can send creation and reading to different API copies. TC12 confirms this with real requests. Shared records must live in MongoDB, not one API's memory/disk, so a stopped API does not own the only copy of data. In Lab 4, Redis required manual replica promotion, application redirection and reconciliation. Here MongoDB's voting replica set elects a new primary and PyMongo discovers it from the seed list without changing application source or manually promoting a node.
+
+## Screenshots and Evidence
+
+Images 01-11 are genuine browser captures of explicitly labelled archived log evidence, not new Terminal screenshots or live replays. Image 12 captures a live record response through nginx. Original logs and CSVs remain the authoritative measurements; full provenance is in [screenshots/README.md](screenshots/README.md).
+
+| Evidence | Screenshot |
+| --- | --- |
+| MongoDB replica set | [Replica set](screenshots/01_replica_set.jpg) |
+| Docker Compose | [Services](screenshots/02_compose.jpg) |
+| Record creation and reading | [POST and GET](screenshots/03_records.jpg) |
+| nginx distribution | [30 requests](screenshots/04_distribution.jpg) |
+| API failure | [api2 stopped](screenshots/05_api_down.jpg) |
+| Load tests | [10 users](screenshots/06_load_10.jpg), [50 users](screenshots/07_load_50.jpg), [100 users](screenshots/08_load_100.jpg) |
+| MongoDB automatic election | [Graceful primary stop](screenshots/09_primary_down.jpg) |
+| Restored topology | [Final roles](screenshots/10_final_roles.jpg) |
+| Abrupt primary crash | [Crash and recovery](screenshots/11_primary_crash.jpg) |
+| Live record | [Live API response](screenshots/12_live_record.jpg) |
 
 ## Evidence and references
 
